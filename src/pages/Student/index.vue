@@ -98,7 +98,9 @@
     </nav>
     <div class="rightdiv">
             <!-- 右侧内容 -->
+            <div class="content">
             <router-view></router-view>
+            </div>
     </div>
     
   </div>
@@ -155,7 +157,8 @@ body {
 
 /* 深色主题变量 */
 .dark {
-    --body-color: #202224;
+    /* --body-color: #202224; */
+    --body-color: #2e2e2e;
     --shell-color: #171717;
     --primary-color: #3a3b3c;
     --primary-color-light: #3a3b3c;
@@ -168,10 +171,10 @@ body {
 .leftdiv {
   float: left;
   /* width: 12vw; */
-  width: 200px;
+  width: 205px;
 }
 .rightdiv {
-
+  padding: 30px;
   /* text-align: center; */
   /* width: 1200px; */
   width: 89vw;
@@ -181,7 +184,9 @@ body {
   /* overflow: hidden; 清除浮动 */
   color: var(--text-color);
 }
-
+.rightdiv .content {
+    background: var(--shell-color);
+}
 .shell {
     position: fixed;
     top: 0;
