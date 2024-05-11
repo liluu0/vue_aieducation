@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="homepage">
+    <div class="content">
     homepage
+    </div>
   </div>
 </template>
 
@@ -11,5 +13,10 @@ export default {
 </script>
 
 <style>
-
+.homepage {
+  padding: 30px;
+}
+.content {
+  background-color: #fff;
+}
 </style>

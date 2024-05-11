@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="student">
     <nav class="shell leftdiv">
         <header>
             <div class="image-text">
@@ -16,54 +16,62 @@
         <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links">
-
+                    <!-- 主页 -->
                     <li class="nav-link">
                         <a href="#">
-                            <i class="iconfont icon-home-4-line icon"></i>
                               <router-link to="/student/homePage">
+                            <i class="iconfont icon-home-4-line icon"></i>
                             <span class="text nac-text">
                                 主页
                             </span>
                               </router-link>
                         </a>
                     </li>
-
+                 <!-- 智能助手 -->
                     <li class="nav-link">
                         <a href="#">
+                            <router-link to="/student/aiHelper">
                             <i class="iconfont icon-chat-white icon"></i>
                             <span class="text nac-text">智能助手</span>
+                            </router-link>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class="iconfont icon-nosearch icon"></i>
-                              <router-link to="/student/material">
+                            <router-link to="/student/material">
+                                <i class="iconfont icon-nosearch icon"></i>
                                 <span class="text nac-text">
                                     资料库
                                 </span>
-                              </router-link>
+                            </router-link>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class="iconfont icon-home-4-line icon"></i>
-                            <span class="text nac-text">我的收藏</span>
+                            <router-link to="/student/myCollect">
+                                <i class="iconfont icon-home-4-line icon"></i>
+                                <span class="text nac-text">我的收藏</span>
+                            </router-link>
+                        </a>
+                    </li>
+                    <!-- 历史记录 -->
+                    <li class="nav-link">
+                        <a href="#">
+                            <router-link to="/student/history">
+                                <i class="iconfont icon-shijian1 icon"></i>
+                                <span class="text nac-text">历史记录</span>
+                            </router-link>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class="iconfont icon-shijian1 icon"></i>
-                            <span class="text nac-text">历史记录</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="iconfont icon-gerenzhongxin icon"></i>
-                            <span class="text nac-text">我的</span>
+                            <router-link to="/student/myPersonage">
+                                <i class="iconfont icon-gerenzhongxin icon"></i>
+                                <span class="text nac-text">我的</span>
+                            </router-link>
                         </a>
                     </li>
                 </ul>
@@ -88,10 +96,10 @@
             </div>
         </div>
     </nav>
-<div class="rightdiv">
-        <!-- 右侧内容 -->
-        <router-view></router-view>
-</div>
+    <div class="rightdiv">
+            <!-- 右侧内容 -->
+            <router-view></router-view>
+    </div>
     
   </div>
 </template>
@@ -122,17 +130,6 @@ export default {
 </script>
 
 <style>
-.leftdiv {
-  float: left;
-}
-.rightdiv {
-
-  text-align: center;
-  /* width: 1200px; */
-  width: 80vw;
-  float: right;
-  /* overflow: hidden; */
-}
 * {
     margin: 0;
     padding: 0;
@@ -152,7 +149,8 @@ body {
     --primary-color: #695CFE;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
+    /* --text-color: #707070; */
+    --text-color: #000000;
 }
 
 /* 深色主题变量 */
@@ -164,13 +162,32 @@ body {
     --toggle-color: #fff;
     --text-color: #ccc;
 }
+/* .student {
+    display: flex;
+} */
+.leftdiv {
+  float: left;
+  /* width: 12vw; */
+  width: 200px;
+}
+.rightdiv {
+
+  /* text-align: center; */
+  /* width: 1200px; */
+  width: 89vw;
+  float: right;
+  
+  /* flex: 1; 占满剩余空间 */
+  /* overflow: hidden; 清除浮动 */
+  color: var(--text-color);
+}
 
 .shell {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 210px;
+    /* width: 210px; */
     padding: 10px 14px;
     background: var(--shell-color);
     transition: all 0.3s ease;
