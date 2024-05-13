@@ -300,7 +300,15 @@ img {
     /* overflow: auto; 启用垂直滚动条 */
     /* scrollbar-color: transparent transparent; 隐藏滚动条 */
 }
+.course-list {
+    /* font-size: 0; */
+    padding: 30px 30px 0;
+    overflow: hidden;
+    width: 100%;
+    /* height:100px */
+}
 
+/* 搜索和添加课程模块 */
 .el-button--small, .el-button--small.is-round {
     padding: 0;
     width: 104px;
@@ -317,21 +325,14 @@ img {
             padding: 0 14px;
             float: left;
         }
-
 .el-input__inner {
     border-radius: 20px;
-    border: 4px solid #dcdfe6;
-    }
+    border: 2px solid #dcdfe6;
+}
 .btn_group::after {
 content: "";
 display: block;
 clear:both;
 }
-.course-list {
-    /* font-size: 0; */
-    padding: 30px 30px 0;
-    overflow: hidden;
-    width: 100%;
-    /* height:100px */
-}
+
 </style>
