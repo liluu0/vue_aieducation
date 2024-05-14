@@ -8,10 +8,12 @@ import {  ElTabs,
     ElTabPane,
     ElButton,
     ElInput,
+    ElSelect,
+    ElOption,
     setupGlobalOptions } from 'element3'
 
 
-// import * as API from "@/api"
+import * as API from "@/api"
 
 
 const app = createApp(App);
@@ -19,7 +21,8 @@ app.use(router);
 app.use(setupGlobalOptions({ size: 'small', zIndex: 3000 }));
 app.use(ElTabs);
 app.use(ElTabPane).use(ElButton).use(ElInput)
+app.use(ElSelect).use(ElOption)
 // 添加全局属性
-// app.config.globalProperties.$API = API;
+app.config.globalProperties.$API = API;
 
 app.mount('#app');

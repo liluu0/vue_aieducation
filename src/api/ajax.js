@@ -1,11 +1,12 @@
-// import axios from "axios";
-// import nProgress from "nprogress";
-// import "nprogress/nprogress.css"
+import axios from "axios";
+// import {getUUID} from '@/utils/uuid_token'
 //引入仓库
 // import store from "@/store";
 
+// 引入 Vue Router
+// import router from '@/router';
 const requests = axios.create({
-    baseURL:"/api",
+    baseURL:"http://localhost:8088/aiEducation",
    //  timeout:5000, 
 })
 //请求拦截器

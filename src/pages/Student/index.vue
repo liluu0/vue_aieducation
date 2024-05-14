@@ -177,7 +177,7 @@ body {
   padding: 30px;
   /* text-align: center; */
   /* width: 1200px; */
-  width: 89vw;
+  width: 88vw;
   float: right;
   
   /* flex: 1; 占满剩余空间 */

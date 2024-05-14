@@ -227,9 +227,6 @@ export default {
 /* ::-webkit-scrollbar {
     display: none;
 } */
-.myClass {
-    min-height: 700px;
-}
 .course {
     float: left;
     position: relative;
@@ -241,8 +238,8 @@ export default {
     color: #a8a8b3;
     overflow: visible;
     cursor: pointer;
-    margin-right: 35px;
-    margin-left: 30px;
+    margin-right: 33px;
+    margin-left: 28px;
     margin-bottom: 0;
 }
 .clearfix:after {
@@ -274,7 +271,8 @@ export default {
     display: inline-block;
 }
 .color1 {
-    color: #131B26;
+    /* color: #131B26; */
+    color: var(--text-color);
 }
 a {
     text-decoration: none;
@@ -289,7 +287,13 @@ img {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    transition: transform 0.1s; /* 添加过渡效果 */
 }
+.course-cover img:hover {
+    transform: scale(1.05); /* 鼠标移入时放大图片 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  }
+
 .course-list {
 
     font-size: 0;
@@ -328,6 +332,7 @@ img {
 .el-input__inner {
     border-radius: 20px;
     border: 2px solid #dcdfe6;
+    width: 287px;
 }
 .btn_group::after {
 content: "";

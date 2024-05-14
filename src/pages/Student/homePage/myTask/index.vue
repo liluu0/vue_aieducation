@@ -7,14 +7,22 @@
                 prefix-icon="el-icon-search"
                 clearable> </el-input>
        </div> 
-       <el-button type="primary" plain round> + 添加课程</el-button>
     </div>
-    task
+    <Task/>
   </div>
 </template>
 
 <script>
+import Task from '@/components/Task'
 export default {
+  components: {
+    Task
+  },
+  data() {
+    return {
+      input: ''
+    }
+  },
 
 }
 </script>
@@ -36,12 +44,7 @@ clear:both;
 .el-input__inner {
     border-radius: 20px;
     border: 2px solid #dcdfe6;
+    width: 287px;
 }
-.el-button--small, .el-button--small.is-round {
-    padding: 0;
-    width: 104px;
-    height: 36px;
-    float: right;
-    margin-left: 30px;
-}
+
 </style>

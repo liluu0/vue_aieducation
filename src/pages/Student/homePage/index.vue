@@ -57,5 +57,6 @@
 .el-tabs__content {
   padding: 0 30px;
   padding-bottom: 76px;
+  min-height: 850px;
 } 
 </style>
