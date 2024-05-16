@@ -8,13 +8,14 @@
                 clearable> </el-input>
        </div> 
     </div>
-    <Task/>
+    <Task :taskAll="taskAll"/>
   </div>
 </template>
 
 <script>
 import Task from '@/components/Task'
 export default {
+  props: ['taskAll'],
   components: {
     Task
   },

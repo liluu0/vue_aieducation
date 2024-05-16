@@ -81,10 +81,10 @@
                                 <input type="password" class="inputs" v-model="signupData.password_again">
                             </div>
                             <div class="inputs-item animations">
-                                <input class="radio" type="radio" v-model.number="signupData.userType" value="0">
+                                <input class="radio" type="radio" v-model="signupData.userType" value="0">
                                 <label class="input-tips" for="option1">学生</label>
 
-                                <input class="radio" type="radio" v-model.number="signupData.userType" value="1">
+                                <input class="radio" type="radio" v-model="signupData.userType" value="1">
                                 <label class="input-tips" for="option2">老师</label>
                             </div>
                             <button @click="signUpBtn" class="sigin-btn animations">SIGN UP</button>
@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import {reqLogin} from '@/api'
+import {reqLogin,reqSignup} from '@/api'
   import { Message } from 'element3'
 export default {
   data () {
@@ -105,7 +105,7 @@ export default {
       loginData: {
         phone: '',
         password: '',
-        userType:Number
+        userType:''
       },
       signupData: {
         phone: '',
@@ -182,24 +182,73 @@ export default {
   },
   methods:{
     async loginBtn(){
-      console.log(this.loginData);
-      console.log(typeof this.loginData.userType);
-      // try {
-      //   const response = await reqLogin(this.loginData)     
-      //   // 请求成功处理逻辑
-      //   console.log(response.data.data);
-      //   // this.gridData = response.data.data
+      if((this.loginData.phone&&this.loginData.password&&this.loginData.userType) == ''){
+        Message.error('登录信息未填写完整')
+        return
+      }
 
-      // } catch (error) {
-      //   Message.error('账号或密码错误')
-      //   console.error('Error fetching data:', error);
-      // }
+      try {
+        const {phone,password,userType} = this.loginData
+        const response = await reqLogin({
+          phone,
+          password,
+          identity:userType
+        })
+        if(response.data.code == 200){
+          // 请求成功处理逻辑
+          Message({
+                          message: '登录成功',
+                          type: 'success'
+          })
+          localStorage.setItem('Admin_token',response.data.data.token)
+          if(userType == '1'){
+            this.$router.push("/teacher")  
+          }else if(userType == '0'){
+            this.$router.push("/student")  
+          }
+        }else{
+          Message.error('手机号或密码错误')
+        }
+
+      } catch (error) {
+        console.error('reqLogin Error:', error);
+      }
 
       
     },
-    signUpBtn(){
-      console.log(this.signupData);
-      console.log(typeof this.signupData.userType);
+    async signUpBtn(){
+      let regexp_1 = /1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\d{8}/;
+      let str = this.signupData.phone
+      if((this.signupData.phone&&this.signupData.password&&this.signupData.password_again&&this.signupData.userType) ==''){
+        Message.error('注册信息未填写完整')
+        return
+      }
+
+      if(!regexp_1.test(str)){
+        Message.error('请输入正确的手机号')
+      }else if(this.signupData.password != this.signupData.password_again){
+        Message.error('两次密码不一致')
+      }else{
+        
+      try {
+        const {phone,password,userType} = this.signupData
+        const response = await reqSignup({
+          phone,
+          password,
+          identity:userType          
+        })   
+        if(response.data.code == 200){
+          Message({
+                          message: '注册成功',
+                          type: 'success'
+          })
+        }else{
+          Message.error(response.data.msg)
+        }
+      } catch (error) {
+        console.error('reqSignup Error:', error);
+      }
+      }
 
 
     }
@@ -208,7 +257,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 /* 定制单选按钮样式 */
 .radio {

@@ -10,201 +10,24 @@
        <el-button type="primary" plain round> + 添加课程</el-button>
     </div>
 
-    <div class="course-list">
-            <div class="course clearfix">
+    <div v-if="!courseAll" class="course-list">
+        <div class="not-data color1">
+            暂无数据
+        </div>
+    </div>
+    <div v-else class="course-list">
+            <div v-for="value in courseAll" :key="value.courseId" class="course clearfix">
                 <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
+                  <a href="#"><img :src="value.courseImage" alt=""></a>
                 </div>
                 <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
+                        <h3 class="inlineBlock">
+                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
+                                                <span class="course-name" style="word-break: break-all;" :title="value.courseName">{{value.courseName}}</span>
                                                 <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
-                </div>
-            </div>
-            <div class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img src="@/assets/1.jpg" alt=""></a>
-                </div>
-                <div class="course-info">
-                            <h3 class="inlineBlock">
-                                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
-                                                <span class="course-name" style="word-break: break-all;" title="审美与礼仪">审美与礼仪</span>
-                                                <i class="icon-news"></i>
-                                            </a>
-                            </h3>
-                                <p class="margint10" title="吉首大学">吉首大学</p>
+                            </a>
+                        </h3>
+                            <p class="margint10" title="吉首大学">{{value.teacherName}}</p>
                 </div>
             </div>
     </div>
@@ -214,10 +37,14 @@
 <script>
 import { ref } from 'vue'
 export default {
+    props: ['courseAll'],
     setup() {
       const input = ref('')
 
       return { input }
+    },
+    mounted(){
+        // console.log(courseAll)
     }
 }
 </script>
@@ -247,6 +74,28 @@ export default {
     display: block;
     height: 0px;
     clear: both;
+}
+
+.course-list {
+
+    font-size: 0;
+    padding: 30px 30px 0;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    min-height: 600px;
+    /* height: 600px; */
+    /* overflow: auto; 启用垂直滚动条 */
+    /* scrollbar-color: transparent transparent; 隐藏滚动条 */
+}
+.course-list .not-data{
+    width: 100%;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .course-list .course-cover {
     width: 240px;
@@ -294,23 +143,6 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
   }
 
-.course-list {
-
-    font-size: 0;
-    padding: 30px 30px 0;
-    overflow: hidden;
-    width: 100%;
-    /* height: 600px; */
-    /* overflow: auto; 启用垂直滚动条 */
-    /* scrollbar-color: transparent transparent; 隐藏滚动条 */
-}
-.course-list {
-    /* font-size: 0; */
-    padding: 30px 30px 0;
-    overflow: hidden;
-    width: 100%;
-    /* height:100px */
-}
 
 /* 搜索和添加课程模块 */
 .el-button--small, .el-button--small.is-round {

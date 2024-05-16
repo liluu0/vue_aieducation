@@ -78,7 +78,7 @@
             </div>
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a @click="quit" href="#">
                         <i class="iconfont icon-left-circle icon"></i>
                         <span class="text nac-text">退出</span>
                     </a>
@@ -126,6 +126,13 @@ export default {
             modeText.innerText = "夜间模式";
         }
     });
+  },
+  methods:{
+    quit(){
+        console.log('退出');
+        localStorage.removeItem('Admin_token');
+        this.$router.push("/login")  
+    }
   }
 
 }
