@@ -1,4 +1,7 @@
 import Login from '@/components/Login'
+import Teacher from '@/pages/Teacher'
+import Teacher_homePage from '@/pages/Teacher/homePage'
+
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
 import aiHelper from '@/pages/Student/aiHelper'
@@ -7,15 +10,15 @@ import myCollect from '@/pages/Student/myCollect'
 import history from '@/pages/Student/history'
 import myPersonage from '@/pages/Student/myPersonage'
 
+import Class from '@/pages/Class'
+import studyRecord from '@/pages/Class/studyRecord'
+
+
 export default [
    {
       path:"/login",
       component:Login,
   },
-  // {
-  //   path:"/student",
-  //   component:Student,
-  // },
   {
     path:"/student",
     component:Student,
@@ -47,6 +50,34 @@ export default [
         {
             path:'/student',
             redirect:'/student/homePage'
+        }
+    ]
+  },
+  {
+    path:"/teacher",
+    component:Teacher,
+    children:[
+        {
+            path:"teacher_homePage",
+            component:Teacher_homePage
+        },
+        {
+            path:'/teacher',
+            redirect:'/teacher/teacher_homePage'
+        }
+    ]
+  },
+  {
+    path:"/class",
+    component:Class,
+    children:[
+        {
+            path:"studyRecord",
+            component:studyRecord
+        },
+        {
+            path:'/class',
+            redirect:'/class/studyRecord'
         }
     ]
   },
