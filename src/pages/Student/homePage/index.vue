@@ -2,20 +2,27 @@
   <div class="homePage">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="我的课程" name="first">
-        <myClass/>
+        <myClass :courseAll="courseAll"/>
       </el-tab-pane>
       <el-tab-pane label="我的任务" name="second">
-        <myTask/>
+        <myTask :taskAll="taskAll"/>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
+import {reqHomePage} from '@/api'
   import { ref } from 'vue'
   import myTask from './myTask'
   import myClass from './myClass'
   export default {
+    data () {
+      return {
+        courseAll:[],
+        taskAll:[]
+      }
+    },
     components: {
       myTask,
       myClass
@@ -27,6 +34,16 @@
         console.log(tab, event)
       }
       return { activeName, handleClick }
+    },
+    async mounted(){
+      try {
+        const response = await reqHomePage()
+        this.courseAll = response.data.data.courseAll
+        this.taskAll = response.data.data.taskAll
+      } catch (error) {
+        // Message.error('手机号或密码错误')
+        console.error('reqHomePage错误:', error);
+      }
     }
   }
 </script>
