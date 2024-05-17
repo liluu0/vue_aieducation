@@ -2,7 +2,7 @@
   <div class="homePage">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="我的课程" name="first">
-        <myClass :courseAll="courseAll"/>
+        <myClass :courseAll="courseAll" @addClassCode="addClassCode"/>
       </el-tab-pane>
       <el-tab-pane label="我的任务" name="second">
         <myTask :taskAll="taskAll"/>
@@ -35,7 +35,11 @@ import {reqHomePage} from '@/api'
       }
       return { activeName, handleClick }
     },
-    async mounted(){
+    mounted(){
+      this.updataHomePage()
+    },
+    methods:{
+      async updataHomePage(){
       try {
         const response = await reqHomePage()
         this.courseAll = response.data.data.courseAll
@@ -44,17 +48,15 @@ import {reqHomePage} from '@/api'
         // Message.error('手机号或密码错误')
         console.error('reqHomePage错误:', error);
       }
+      },
+      addClassCode(data){
+        this.updataHomePage()
+      }
     }
   }
 </script>
 
 <style >
-/* ::-webkit-scrollbar-thumb {
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    background-color: #DADFE5;
-} */
 .el-tabs__header {
     height: 60px;
     box-shadow: 0px -1px 0px 0px #f2f2f2 inset;

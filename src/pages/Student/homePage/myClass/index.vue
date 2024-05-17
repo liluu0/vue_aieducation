@@ -7,7 +7,7 @@
                 prefix-icon="el-icon-search"
                 clearable> </el-input>
        </div> 
-       <el-button type="primary" plain round> + 添加课程</el-button>
+       <el-button @click="addClass" type="primary" plain round> + 添加课程</el-button>
     </div>
 
     <div v-if="!courseAll" class="course-list">
@@ -17,12 +17,14 @@
     </div>
     <div v-else class="course-list">
             <div v-for="value in courseAll" :key="value.courseId" class="course clearfix">
-                <div class="course-cover">
-                  <a href="#"><img :src="value.courseImage" alt=""></a>
+                <div class="course-cover"  @click="goClass(value.courseId)">
+                  <a :href="'/class?courseId=' + value.courseId" target="_blank">
+                    <img :src="value.courseImage" alt="">
+                  </a>
                 </div>
                 <div class="course-info">
                         <h3 class="inlineBlock">
-                            <a class="color1" href="https://mooc1.chaoxing.com/visit/stucoursemiddle?courseid=236735527&amp;clazzid=93409804&amp;cpi=283002507&amp;ismooc2=1" target="_blank">
+                            <a class="color1" :href="'/class?courseId=' + value.courseId" target="_blank">
                                                 <span class="course-name" style="word-break: break-all;" :title="value.courseName">{{value.courseName}}</span>
                                                 <i class="icon-news"></i>
                             </a>
@@ -35,7 +37,9 @@
 </template>
 
 <script>
+import {reqAddCourse} from '@/api'
 import { ref } from 'vue'
+import { Msgbox, Message } from 'element3'
 export default {
     props: ['courseAll'],
     setup() {
@@ -44,16 +48,56 @@ export default {
       return { input }
     },
     mounted(){
-        // console.log(courseAll)
+    },
+    methods:{
+        addClass(){
+            Msgbox
+            .prompt('','请输入课程邀请码', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              inputPattern:  /\S/,
+              inputErrorMessage: '课程邀请码格式不正确',
+              center: true,
+              lockScroll:false,
+              closeOnClickModal:false
+            })
+            .then(async ({ value }) => {
+                try {
+                    const res = await reqAddCourse({
+                        invitationCode:value
+                    })
+                    if(res.data.code==200){
+                        this.$emit('addClassCode', '添加课程码');
+                        Message({
+                          type: 'success',
+                          message: res.data.msg
+                        })
+                    }else{
+                        Message({
+                            type: 'info',
+                            message: res.data.msg
+                        })
+                    }
+                    
+                } catch (error) {
+                    console.log('reqAddCourse',error);
+                }
+            })
+            .catch(() => {
+              Message({
+                type: 'info',
+                message: '取消添加'
+              })
+            })
+        },
+        goClass(courseId){
+            console.log(courseId);
+        }
     }
 }
 </script>
 
 <style scoped>
-/* 隐藏滚动条 */
-/* ::-webkit-scrollbar {
-    display: none;
-} */
 .course {
     float: left;
     position: relative;
@@ -172,4 +216,8 @@ display: block;
 clear:both;
 }
 
+/* 设置课程邀请码弹窗圆角 */
+.el-message-box {
+    border-radius: 20px;
+}
 </style>
