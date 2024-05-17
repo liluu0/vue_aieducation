@@ -308,16 +308,16 @@
            </div>
        </div>
    </div>
-</template>
+   </template>
    
-<script>
-export default {
+   <script>
+   export default {
    
    }
-</script>
+   </script>
    
-<style scoped>
- * {
+   <style>
+   * {
     margin: 0;
     padding: 0;
 }

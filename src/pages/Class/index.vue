@@ -106,9 +106,10 @@
     </div>
   </template>
   
-<script>
-export default {
-mounted(){
+  <script>
+  
+  export default {
+    mounted(){
       const body = document.querySelector('body'),
           modeSwitch = body.querySelector(".toggle-switch"),
           modeText = body.querySelector(".mode-text");
@@ -125,11 +126,12 @@ mounted(){
               modeText.innerText = "夜间模式";
           }
       });
-}
-}
-</script>
+    }
   
-<style scoped>
+  }
+  </script>
+  
+  <style>
   * {
       margin: 0;
       padding: 0;
@@ -413,4 +415,4 @@ mounted(){
   .dark .switch::before {
       left: 20px;
   }
-</style>
+  </style>
