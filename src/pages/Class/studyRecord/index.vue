@@ -308,20 +308,15 @@
            </div>
        </div>
    </div>
-   </template>
+</template>
    
-   <script>
+<script>
    export default {
    
    }
-   </script>
+</script>
    
-   <style>
-   * {
-    margin: 0;
-    padding: 0;
-}
-
+<style scoped>
 [v-cloak] {
   display: none;
 }
@@ -2104,4 +2099,4 @@ body {
     margin: -2px 4px 0 0;
 }
 
-   </style>
+</style>

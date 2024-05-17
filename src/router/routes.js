@@ -12,6 +12,9 @@ import myPersonage from '@/pages/Student/myPersonage'
 
 import Class from '@/pages/Class'
 import studyRecord from '@/pages/Class/studyRecord'
+import Class_homePage from '@/pages/Class/homePage'
+import discuss from '@/pages/Class/discuss'
+import class_material from '@/pages/Class/material'
 
 
 export default [
@@ -76,8 +79,20 @@ export default [
             component:studyRecord
         },
         {
+            path:"class_homePage",
+            component:Class_homePage
+        },
+        {
+            path:"discuss",
+            component:discuss
+        },
+        {
+            path:"class_material",
+            component:class_material
+        },
+        {
             path:'/class',
-            redirect:'/class/studyRecord'
+            redirect:'/class/Class_homePage'
         }
     ]
   },

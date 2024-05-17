@@ -161,11 +161,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 /* 页面五-站点展示 */
 #nav05{
-	width: 89.5%;
+	width: 100%;
 	height: 100%;
 	background-color: #efefef;
 	overflow-y: scroll;
