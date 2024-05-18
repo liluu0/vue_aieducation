@@ -10,11 +10,12 @@
        <el-button @click="addClass" type="primary" plain round> + 添加课程</el-button>
     </div>
 
-    <div v-if="!courseAll" class="course-list">
+    <div v-if="!Object.keys(courseAll).length" class="course-list">
         <div class="not-data color1">
             暂无数据
         </div>
     </div>
+
     <div v-else class="course-list">
             <div v-for="value in courseAll" :key="value.courseId" class="course clearfix">
                 <div class="course-cover"  @click="goClass(value.courseId)">
@@ -48,6 +49,7 @@ export default {
       return { input }
     },
     mounted(){
+        console.log(this.courseAll);
     },
     methods:{
         addClass(){

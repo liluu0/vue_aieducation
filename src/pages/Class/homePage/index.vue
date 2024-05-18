@@ -1,7 +1,7 @@
 <template>
   <div id="nav02">
 					<div class="nav02_bg">
-						<div class="nav02_bt">关于本站</div>
+						<div class="nav02_bt">课程首页</div>
 					</div>
 					<!-- 站长资料 -->
 					<div class="nav02_kj" style="height: 600px;">
@@ -122,12 +122,13 @@ export default {
 }
 .nav02_bg{
 	width: 100%;
-	height: 360px;
+	height: 420px;
 	/* 关于站长页面顶部头图 */
 	background-image: url(../img/guanyuzhanzhang.jpg);
 	background-size: cover;
-	background-position: center bottom;
-	background-repeat: no-repeat;
+	/* background-position: center bottom; */
+	/* background-repeat: no-repeat; */
+	background-repeat: round;
 	position: relative;
 }
 .nav02_bt{
@@ -146,6 +147,7 @@ export default {
 	color: #282828;
 	font-size: 22px;
 	letter-spacing: 1px;
+	text-align: center;
 }
 .nav02_kj{
 	width: 90%;

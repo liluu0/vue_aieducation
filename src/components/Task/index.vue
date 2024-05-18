@@ -18,7 +18,7 @@
                             <div class="fs12 color181E33 lineheight20 inlineBlock">未完成</div>
         </div>
 
-        <div v-if="!taskAll" class="bottomList">
+        <div v-if="!Object.keys(taskAll).length" class="bottomList">
             <div class="not-data color181E33">
                 暂无数据
             </div>

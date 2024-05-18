@@ -12,8 +12,8 @@
 					<!-- 第五页-内容区域 -->
 					<div class="nav05_centent">
 						<div class="nav05_centent_tit">
-							<h1>🦄官方站点🦄</h1>
-							<p>注:如果官方站点打不开则因为服务器被DDOS了</p>
+							<h1>🦄资料库🦄</h1>
+							<p>注:只要朝着阳光向上，总有一天春暖花开。</p>
 						</div>
 						<!-- 作品展示模板NO1 -->
 						<div class="nav05_centent_mb">
@@ -83,7 +83,7 @@
 
 					<div class="nav05_centent">
 						<div class="nav05_centent_tit">
-							<h1>🦄团队成员·优秀站点🦄</h1>
+							<h1>🦄推荐资料🦄</h1>
 							<p>优秀的站点，就要被展示出来！</p>
 						</div>
 						<!-- 作品展示模板NO1 -->
@@ -150,7 +150,6 @@
 							<div>立即前往</div>
 						</div>
 					</div>
-					<p class="nav05_footer">你有酷酷或者实用的站点推荐嘛？~</p>
 	</div>
 
 </template>
@@ -409,14 +408,4 @@ export default {
 .nav05_centent_mb:hover>div{
 	transform: translateY(-20px);
 }
-.nav05_footer{
-	width: 100%;
-	height: 20px;
-	color: #b3bdc3;
-	font-size: 12px;
-	font-weight: 400;
-	letter-spacing: 2px;
-	margin: 60px 0px 40px 0px;
-}
-
 </style>

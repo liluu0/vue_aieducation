@@ -68,6 +68,7 @@ import {reqHomePage} from '@/api'
     text-align: center;
     line-height: 60px;
     font-size: 16px;
+    width: 100%;
 }
 .el-tabs__item {
   /* color: #ffffff; */
