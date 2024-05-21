@@ -27,7 +27,35 @@
                               </router-link>
                         </a>
                     </li>
+                    <!-- 学生管理 -->
+                    <li class="nav-link">
+                        <a href="#">
+                            <router-link to="/teacher/studentManage">
+                                <i class="iconfont icon-nosearch icon"></i>
+                                <span class="text nac-text">
+                                    学生管理
+                                </span>
+                            </router-link>
+                        </a>
+                    </li>
 
+                    <li class="nav-link">
+                        <a href="#">
+                            <router-link to="/teacher/teacher_aiHelper">
+                                <i class="iconfont icon-chat-white icon"></i>
+                                <span class="text nac-text">智能教师助手</span>
+                            </router-link>
+                        </a>
+                    </li>
+                    <!-- 我的 -->
+                    <li class="nav-link">
+                        <a href="#">
+                            <router-link to="/teacher/my">
+                                <i class="iconfont icon-gerenzhongxin icon"></i>
+                                <span class="text nac-text">我的</span>
+                            </router-link>
+                        </a>
+                    </li>
                     
                 </ul>
             </div>
@@ -120,9 +148,10 @@ body {
 /* 深色主题变量 */
 .dark {
     /* --body-color: #202224; */
-    --body-color: #2e2e2e;
+    --body-color: #242323dc;
+    /* --body-color: #2e2e2e; */
     --shell-color: #171717;
-    --primary-color: #3a3b3c;
+    --primary-color: #3a3b3c5d;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;

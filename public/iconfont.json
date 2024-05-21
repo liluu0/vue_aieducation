@@ -123,6 +123,13 @@
       "font_class": "chat-white",
       "unicode": "e601",
       "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "579520",
+      "name": "相机1",
+      "font_class": "xiangji1",
+      "unicode": "e77f",
+      "unicode_decimal": 59263
     }
   ]
 }

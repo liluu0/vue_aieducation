@@ -1,9 +1,13 @@
 import axios from "axios";
+
+import nProgress from "nprogress";
+import "nprogress/nprogress.css"
+
 import {getUUID} from '@/utils/uuid_token'
+import { Message } from 'element3'
 //引入仓库
 // import store from "@/store";
 
-import { Message } from 'element3'
 // 引入 Vue Router
 import router from '@/router';
 const requests = axios.create({
@@ -16,6 +20,7 @@ requests.interceptors.request.use((config)=>{
    if(getUUID()){
       config.headers.token = getUUID()
    }
+   nProgress.start()
     return config;
  })
 
@@ -23,6 +28,8 @@ requests.interceptors.request.use((config)=>{
  // 响应拦截器
 requests.interceptors.response.use(
    (res) => {
+      nProgress.done()
+
       // 判断状态码是否是 401 未授权错误
       if (res.data && res.data.code === 401) {
         setTimeout(()=>{

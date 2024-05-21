@@ -47,25 +47,25 @@
                             </router-link>
                         </a>
                     </li>
-
+                    <!-- 我的收藏 -->
                     <li class="nav-link">
                         <a href="#">
                             <router-link to="/student/myCollect">
-                                <i class="iconfont icon-home-4-line icon"></i>
+                                <i class="iconfont icon-wodeshoucang icon"></i>
                                 <span class="text nac-text">我的收藏</span>
                             </router-link>
                         </a>
                     </li>
-                    <!-- 历史记录 -->
+                    <!-- 错题集 -->
                     <li class="nav-link">
                         <a href="#">
-                            <router-link to="/student/history">
+                            <router-link to="/student/errorSet">
                                 <i class="iconfont icon-shijian1 icon"></i>
-                                <span class="text nac-text">历史记录</span>
+                                <span class="text nac-text">错题集</span>
                             </router-link>
                         </a>
                     </li>
-
+                    <!-- 我的 -->
                     <li class="nav-link">
                         <a href="#">
                             <router-link to="/student/myPersonage">
@@ -164,17 +164,16 @@ body {
 
 /* 深色主题变量 */
 .dark {
-    /* --body-color: #202224; */
-    --body-color: #2e2e2e;
+    /* --body-color: #2d87e0; */
+    --body-color: #1b1b1bd3;
+    /* --body-color: #242323dc; */
     --shell-color: #171717;
-    --primary-color: #3a3b3c;
+    /* --primary-color: #d12a2a5d; */
+    --primary-color: #3a3b3c8f;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
 }
-/* .student {
-    display: flex;
-} */
 .leftdiv {
   float: left;
   /* width: 12vw; */
@@ -182,8 +181,6 @@ body {
 }
 .rightdiv {
   padding: 30px;
-  /* text-align: center; */
-  /* width: 1200px; */
   width: 88vw;
   float: right;
   
@@ -199,7 +196,6 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    /* width: 210px; */
     padding: 10px 14px;
     background: var(--shell-color);
     transition: all 0.3s ease;

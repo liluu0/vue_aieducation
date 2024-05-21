@@ -9,25 +9,37 @@
 					</div>
 					<div class="cleftbg_p">要每天都有好心情吖~</div>
 				</div>
-                <router-link to="/class/Class_homePage">
+				<!-- 首页 -->
+                <router-link :to="'/class/' + $route.params.courseId+'/Class_homePage'">
+                <!-- <router-link :to="{name:'Class_homePage',params:{courseId:$route.params.courseId}}"> -->
                     <li id="cleft_li01">
                             <img src="./font/cnmsb01.png" />
                             <span>课程首页</span>
                     </li>
                 </router-link>
-                <router-link to="/class/class_material">
+
+				<!-- 课程任务 -->
+				<router-link :to="'/class/' + $route.params.courseId+'/task'">
+					<!-- <router-link :to="{name:'task',params:{courseId:$route.params.courseId}}"> -->
+
+                  <li id="cleft_li03"><img src="./font/cnmsb03.png" />
+                         <span>课程任务</span>
+                  </li>
+				</router-link>
+                <router-link :to="'/class/' + $route.params.courseId+'/class_material'">
                     <li id="cleft_li02">
                         <img src="./font/cnmsb02.png" /><span>资料</span>
                     </li>
                 </router-link>
-                <li id="cleft_li03"><img src="./font/cnmsb03.png" /><span>课程章节</span></li>
+
 				<li id="cleft_li04"><img src="./font/cnmsb04.png" /><span>课程群聊</span></li>
-				<router-link to="/class/discuss">
+
+				<router-link :to="'/class/' + $route.params.courseId+'/discuss'">
                   <li id="cleft_li05">
                     <img src="./font/cnmsb05.png" /><span>讨论</span>
                   </li>
                 </router-link>
-                <router-link to="/class/studyRecord">
+                <router-link :to="'/class/' + $route.params.courseId+'/studyRecord'">
                   <li id="cleft_li07">
                       <img src="./font/cnmsb07.png" />
                       <span>学习记录</span>
@@ -50,8 +62,10 @@
 
 <script>
 export default {
-mounted(){
-}
+	mounted(){
+		console.log('class');
+	}
+
 }
 </script>
 

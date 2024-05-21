@@ -19,7 +19,10 @@
     <div v-else class="course-list">
             <div v-for="value in courseAll" :key="value.courseId" class="course clearfix">
                 <div class="course-cover"  @click="goClass(value.courseId)">
-                  <a :href="'/class?courseId=' + value.courseId" target="_blank">
+                    <!-- <router-link :to="{name:'class',params:{courseId:value.courseId}}">
+
+                    </router-link> -->
+                  <a :href="'/class/' + value.courseId+'/class_homePage'" target="_blank">
                     <img :src="value.courseImage" alt="">
                   </a>
                 </div>

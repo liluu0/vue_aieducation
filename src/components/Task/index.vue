@@ -33,7 +33,9 @@
                                 <div class="right-content">
                                     <p class="overHidden2 fl">{{value.taskName}}</p>
                                     <div class="clear"></div>
-                                    <p class="status fl">{{value.taskStatus}}</p>
+                                    <p class="status fl">
+                                        {{value.status==0?'待批阅':value.status==1?'已批阅':'未完成'}}
+                                    </p>
                                     <div class="clear"></div>
                                 </div>
                         </li>

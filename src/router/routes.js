@@ -1,13 +1,16 @@
 import Login from '@/components/Login'
 import Teacher from '@/pages/Teacher'
 import Teacher_homePage from '@/pages/Teacher/homePage'
+import studentManage from '@/pages/Teacher/studentManage'
+import teacher_aiHelper from '@/pages/Teacher/aiHelper'
+import my from '@/pages/Teacher/my'
 
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
 import aiHelper from '@/pages/Student/aiHelper'
 import material from '@/pages/Student/material'
 import myCollect from '@/pages/Student/myCollect'
-import history from '@/pages/Student/history'
+import errorSet from '@/pages/Student/errorSet'
 import myPersonage from '@/pages/Student/myPersonage'
 
 import Class from '@/pages/Class'
@@ -15,6 +18,7 @@ import studyRecord from '@/pages/Class/studyRecord'
 import Class_homePage from '@/pages/Class/homePage'
 import discuss from '@/pages/Class/discuss'
 import class_material from '@/pages/Class/material'
+import task from '@/pages/Class/task'
 
 
 export default [
@@ -43,8 +47,8 @@ export default [
             component:myCollect
         },
         {
-            path:"history",
-            component:history
+            path:"errorSet",
+            component:errorSet
         },
         {
             path:"myPersonage",
@@ -65,34 +69,59 @@ export default [
             component:Teacher_homePage
         },
         {
+            path:"studentManage",
+            component:studentManage
+        },
+        {
+            path:"teacher_aiHelper",
+            component:teacher_aiHelper
+        },
+        {
+            path:"my",
+            component:my
+        },
+        {
             path:'/teacher',
             redirect:'/teacher/teacher_homePage'
         }
     ]
   },
   {
-    path:"/class",
+    path:"/class/:courseId",
+    name:'class',
     component:Class,
-    children:[
+    props:true,
+    children: [
         {
-            path:"studyRecord",
-            component:studyRecord
+          path: "studyRecord",
+          component: studyRecord,
+          props:true,
         },
         {
-            path:"class_homePage",
-            component:Class_homePage
+          name:'Class_homePage',
+          path: "class_homePage",
+          component: Class_homePage,
+          props:true,
         },
         {
-            path:"discuss",
-            component:discuss
+          path: "discuss",
+          component: discuss,
+          props:true,
         },
         {
-            path:"class_material",
-            component:class_material
+          path: "class_material",
+          component: class_material,
+          props:true,
         },
         {
-            path:'/class',
-            redirect:'/class/Class_homePage'
+          name:'task',
+          path: "task",
+          component: task,
+          props:true,
+        },
+        {
+          path: '',
+          redirect: '/class/:courseId/class_homePage'
         }
     ]
   },
