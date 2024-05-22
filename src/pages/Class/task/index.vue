@@ -1,7 +1,8 @@
 <template>
 	<div id="nav07">
           <div class="bgc">
-            <div class="tasks">
+            <div class="tasks nav02_kj">
+                <h3>高等数学</h3> 
                 <div class="btn_group" tabindex="-1" aria-hidden="true">
                     <div class="search-box">
                                 <el-input placeholder="请输入内容" 
@@ -48,9 +49,26 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.nav02_kj{
+	width: 100%;
+	text-align: left;
+	overflow: hidden;
+}
+.nav02_kj h3{
+  /* height: 53px;
+  line-height: 47px; */
+  border-bottom: 3px solid #f0f0f2;
+  width: 100%;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 3px;
+	color: rgba(40,40,40,0.8);
+	padding: 20px 0px 15px 30px;
+}
 
-/* .btn_group::after {
+
+.btn_group::after {
 content: "";
 display: block;
 clear:both;
@@ -58,21 +76,17 @@ clear:both;
 .search-box {
             cursor: pointer;
             transition: all 0.3s ease;
-            padding: 0 14px;
+            padding: 15px 0 0 25px;
             float: left;
 }
-.el-input__inner {
-    border-radius: 20px;
-    border: 2px solid #dcdfe6;
-    width: 287px;
-} */
 
 
 #nav07 .bgc {
   background-color: #fff;
 }
 .bgc .tasks {
-    padding: 30px 0;
+    min-height: 925px;
+    padding: 0 0 30px 0;
 }
 /*-----Nav07-本站源码-内容区域-右侧------*/
 #nav07{

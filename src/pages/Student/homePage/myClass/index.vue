@@ -28,7 +28,7 @@
                 </div>
                 <div class="course-info">
                         <h3 class="inlineBlock">
-                            <a class="color1" :href="'/class?courseId=' + value.courseId" target="_blank">
+                            <a class="color1" :href="'/class/' + value.courseId+'/class_homePage'" target="_blank">
                                                 <span class="course-name" style="word-break: break-all;" :title="value.courseName">{{value.courseName}}</span>
                                                 <i class="icon-news"></i>
                             </a>

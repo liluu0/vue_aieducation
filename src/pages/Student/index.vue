@@ -146,7 +146,7 @@ export default {
 }
 
 body {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background-color: var(--body-color);
     transition: all 0.3s ease;
 }

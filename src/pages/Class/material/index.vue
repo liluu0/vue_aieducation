@@ -150,7 +150,6 @@
 							<div>立即前往</div>
 						</div>
 					</div>
-					<p class="nav05_footer">你有酷酷或者实用的站点推荐嘛？~</p>
 	</div>
 
 </template>
@@ -408,15 +407,6 @@ export default {
 }
 .nav05_centent_mb:hover>div{
 	transform: translateY(-20px);
-}
-.nav05_footer{
-	width: 100%;
-	height: 20px;
-	color: #b3bdc3;
-	font-size: 12px;
-	font-weight: 400;
-	letter-spacing: 2px;
-	margin: 60px 0px 40px 0px;
 }
 
 </style>

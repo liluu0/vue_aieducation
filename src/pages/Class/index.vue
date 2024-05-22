@@ -5,9 +5,9 @@
 			<ul id="cleft">
 				<div class="cleft_top">
 					<div class="cleft_topbg">
-						<div class="cleftbg_img"><img src="./img/tx.jpg" alt="头像"></div>
+						<!-- <div class="cleftbg_img"><img src="./img/tx.jpg" alt="头像"></div> -->
 					</div>
-					<div class="cleftbg_p">要每天都有好心情吖~</div>
+					<div class="cleftbg_p">要每天都有好心情吖</div>
 				</div>
 				<!-- 首页 -->
                 <router-link :to="'/class/' + $route.params.courseId+'/Class_homePage'">
@@ -32,7 +32,7 @@
                     </li>
                 </router-link>
 
-				<li id="cleft_li04"><img src="./font/cnmsb04.png" /><span>课程群聊</span></li>
+				<!-- <li id="cleft_li04"><img src="./font/cnmsb04.png" /><span>课程群聊</span></li> -->
 
 				<router-link :to="'/class/' + $route.params.courseId+'/discuss'">
                   <li id="cleft_li05">
@@ -128,7 +128,7 @@ li{
 }
 .cleft_topbg{
 	width: 100%;
-	height: 120px;
+	height: 140px;
 	/* 左上角头像下面的背景图片 */
 	background-image: url(./img/cnmtlbg.jpg);
 	background-position: center center;
@@ -152,18 +152,19 @@ li{
 	width: 100%;
 }
 .cleftbg_p{
-	width: 90%;
+	/* width: 90%; */
 	padding-bottom: 8px;
-	margin: 35px auto;
+	margin: 15px auto;
 	font-size: 12px;
 	font-weight: 400;
 	letter-spacing: 1px;
-	color: #9facb2;
+	/* color: #9facb2; */
 	border-bottom: 1px solid #ececec;
+	text-align: center;
 }
 #cleft li{
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	line-height: 40px;
 	text-align: left;
 	background-color: #F9F9F9;

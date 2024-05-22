@@ -1,4 +1,6 @@
 import Login from '@/components/Login'
+import CreateClass from '@/components/CreateClass'
+
 import Teacher from '@/pages/Teacher'
 import Teacher_homePage from '@/pages/Teacher/homePage'
 import studentManage from '@/pages/Teacher/studentManage'
@@ -20,11 +22,21 @@ import discuss from '@/pages/Class/discuss'
 import class_material from '@/pages/Class/material'
 import task from '@/pages/Class/task'
 
+import teacherClass from '@/pages/TeacherClass'
+import teacherClass_homePage from '@/pages/TeacherClass/homePage'
+import teacherClass_task from '@/pages/TeacherClass/task'
+import teacherClass_discuss from '@/pages/TeacherClass/discuss'
+import teacherClass_material from '@/pages/TeacherClass/material'
+import classManage from '@/pages/TeacherClass/classManage'
 
 export default [
    {
       path:"/login",
       component:Login,
+  },
+  {
+     path:"/createClass",
+     component:CreateClass,
   },
   {
     path:"/student",
@@ -122,6 +134,45 @@ export default [
         {
           path: '',
           redirect: '/class/:courseId/class_homePage'
+        }
+    ]
+  },
+  {
+    path:"/teacherClass/:courseId",
+    name:'teacherClass',
+    component:teacherClass,
+    props:true,
+    children: [
+        {
+          name: "teacherClass_homePage",
+          path: "teacherClass_homePage",
+          component: teacherClass_homePage,
+          props:true,
+        },
+        {
+          name:'teacherClass_task',
+          path: "teacherClass_task",
+          component: teacherClass_task,
+          props:true,
+        },
+        {
+          path: "teacherClass_discuss",
+          component: teacherClass_discuss,
+          props:true,
+        },
+        {
+          path: "teacherClass_material",
+          component: teacherClass_material,
+          props:true,
+        },
+        {
+          path: "classManage",
+          component: classManage,
+          props:true,
+        },
+        {
+          path: '',
+          redirect: '/teacherClass/:courseId/teacherClass_homePage'
         }
     ]
   },
