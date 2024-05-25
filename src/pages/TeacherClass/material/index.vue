@@ -1,11 +1,14 @@
 <template>
-  <div>
-    material
-  </div>
+  <Material isTeacher="true"/>
 </template>
 
 <script>
+import Material from '@/components/Material'
 export default {
+    components:{
+        Material
+    }
+
 
 }
 </script>

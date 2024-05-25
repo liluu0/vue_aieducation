@@ -141,6 +141,7 @@ export default [
     path:"/teacherClass/:courseId",
     name:'teacherClass',
     component:teacherClass,
+    isTeacher:true,
     props:true,
     children: [
         {
@@ -163,6 +164,7 @@ export default [
         {
           path: "teacherClass_material",
           component: teacherClass_material,
+          meta:{isTeacher:true},
           props:true,
         },
         {
