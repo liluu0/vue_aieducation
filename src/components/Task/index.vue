@@ -121,7 +121,7 @@ ul, ol, li {
     cursor: pointer;
     transition: transform 0.3s; /* 添加过渡效果 */
 }
-.bottomList ul li :hover{
+.bottomList ul li:hover{
     background-color: var(--body-color);
 }
 .bottomList ul li .tag {

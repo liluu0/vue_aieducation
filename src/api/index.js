@@ -17,3 +17,5 @@ export const reqCourseTasks = (courseId)=>requests({url:`/student/courseTasks/${
 export const reqTeacherCourse = ()=>requests({url:'/teacher/courses',method:'get'})
 
 export const reqTeacherAddClass = (params)=>requests({url:"/teacher/add",method:"post",data:params})
+
+export const reqRemoveCourse = (courseId)=>requests({url:`/student/remove/${courseId}`,method:'get'})

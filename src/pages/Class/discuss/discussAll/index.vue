@@ -50,47 +50,139 @@
 			</div> 
 			<div class="edit_title">
 				<input type="text" name="title" placeholder="请输入标题" autocomplete="off">
-				<div class="index useragreement">发表该话题即表示您已阅读并接受
-					<a target="_blank" href="https://homewh.chaoxing.com/agree/userAgreement">《用户协议》</a>,请遵守该协议
+				<div class="deit_content">
+					
+					<div style="border: 1px solid #ccc">
+						<Toolbar
+						style="border-bottom: 1px solid #ccc"
+						:editor="editorRef"
+						:defaultConfig="toolbarConfig"
+						:mode="mode"
+						/>
+						<Editor
+						class="editor"
+						style="height: 500px; overflow-y: hidden;"
+						v-model="valueHtml"
+						:defaultConfig="editorConfig"
+						:mode="mode"
+						@onCreated="handleCreated"
+						/>
+					</div>
+					<br>
+                <el-button @click="createDiscuss" type="primary" plain round> 发 布 </el-button>
 				</div>
-				<div class="jb_btn jb_btn_92_disable fs14 fr">发布</div>
 			</div>
 		</div>
 	</div>
 
 
   </div>
-
-					<!-- 拓展功能 -->
-					<div class="nav07_kj">
-						<h3>😁拓/展/功/能</h3>
-						<h4>这些都不难，你们可以自行选择添加</h4>
-						<p>
-							鼠标点击特效，修改鼠标样式
-						</p>
-						<p>
-							添加一个音乐播放器
-						</p>
-						<p>
-							添加一个看板娘
-						</p>
-						<p>
-							添加一个聊天室
-						</p>
-						<p>
-							添加一些小游戏
-						</p>
-					</div>
   </div>
 </template>
 
 <script>
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 export default {
+	components: { Editor, Toolbar },
+  setup() {
+    // 编辑器实例，必须用 shallowRef
+    const editorRef = shallowRef()
+    // 内容 HTML
+    const valueHtml = ref("<p>开始编辑<p>")
+    let articleId=null
+    let updatatime=null
+    // 模拟 ajax 异步获取内容
+    onMounted(() => {
+      
+         handleEdit()
+    
+    })
+    const editorConfig = {
+      MENU_CONF: {}
+    }
+   
+    const toolbarConfig = {}
+    editorConfig.MENU_CONF['uploadImage'] = {
+      server: 'http://localhost:8088/travelhelper/file/uploadTest',
+      uploadImgMaxSize: 30 * 1024 * 1024
+      // 上传图片的配置
+    }
+    // 组件销毁时，也及时销毁编辑器
+    onBeforeUnmount(() => {
+      const editor = editorRef.value
+      if (editor == null) return
+      editor.destroy()
+    })
+    const handleCreated = (editor) => {
+      editorRef.value = editor // 记录 editor 实例，重要！
+    }
+
+    // 提交函数
+    const submit = () => {
+//       const data = {arId: articleId,
+//                     content: valueHtml.value,
+//                     time: updatatime
+// 	  }
+//     reqSubmit(data).then(response => {
+//       Message({
+//       message: '提交成功',
+//       type: 'success'
+//     })
+//     // 处理服务器返回的响应
+//     handleEdit()
+//   })
+//   .catch(error => {
+//     console.error('提交失败：', error)
+//     // 处理错误
+//   })
+
+    }
+
+    // 修改函数
+    const handleEdit = async () => {
+
+    //   try {    
+    //              // 请求成功处理逻辑
+    //       await reqText().then(response => {
+    //       console.log(response.data.content)
+    //       // 处理服务器返回的响应
+    //         valueHtml.value=response.data.data.content;
+    //       articleId=response.data.data.arId
+    //       updatatime=response.data.data.time
+    //     })
+    //     .catch(error => {
+    //       console.error('提交失败：', error)
+    //       // 处理错误
+    //     })
+
+    //   } catch (error) {
+    //     console.error('修改文章错误:', error);
+    //   }
+      
+      // 设置编辑器内容为新的内容
+
+    }
+    return {
+      editorRef,
+      valueHtml,
+      mode: 'default', // 或 'simple'
+      toolbarConfig,
+      editorConfig,
+      handleCreated,
+      submit,
+      handleEdit
+    }
+  }
 
 }
 </script>
 
 <style scoped>
+/* .deit_content {
+ background-color: red;
+} */
 .fl {
     float: left;
 }
@@ -99,7 +191,6 @@ export default {
 }
 /* 新建讨论 */
 .editContainer {
-	background-color: pink;
     position: relative;
     padding: 30px 30px 40px;
     min-height: 500px;
@@ -119,13 +210,26 @@ export default {
 	color: #8A8B99;
 }
 .editContainer .edit_target .selectClass-disabled {
-    margin-left: 14px;
+	margin-left: 14px;
     font-size: 14px;
 }
 .editContainer .edit_title {
 	background: #fff;
 	margin-bottom: 15px;
 }
+.editContainer .edit_title input {
+    display: block;
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    font-size: 14px;
+    border: 1px solid #D5D7D9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: #3A8BFF;
+	margin: 15px 0;
+}
+
 /* 分界 */
 .clearfix:after {
     content: " ";
@@ -153,20 +257,14 @@ ul, ol, li {
 .breadcrumb>li.active {
     color: #8A8B99;
 }
-/* 搜索 */
-/* .btn_group {
-    margin-top: 20px;
-} */
 .btn_group::after {
 content: "";
 display: block;
 clear:both;
 }
 .search-box {
-            /* background-color: var(--primary-color-light); */
             cursor: pointer;
             transition: all 0.3s ease;
-            /* z-index: 2; */
             padding: 0;
             float: left;
 }
@@ -185,84 +283,26 @@ clear:both;
 
 /* 话题 */
 .dataCon {
-    /* position: relative; */
-	min-height: 360px;
+	min-height: 400px;
 }
 .dataCon_empty {
-    height: 360px;
+    height: 180px;
     font-size: 14px;
     color: #a8a8b3;
-    border-top: solid 1px #F2F2F2;
     text-align: center;
-
     position: absolute;
-    top: 50%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .dataCon_empty span {
-
     display: inline-block;
     vertical-align: middle;
 }
 .bgmargin {
 	height: 20px;
-	/* width: 100%; */
 	background-color: #efefef;
-	width: 105%;
+	width: 107%;
     margin-left: -30px;
-}
-
-.nav07_kj{
-	width: 100%;
-	/* margin: 80px auto 10px auto; */
-	text-align: left;
-	overflow: hidden;
-}
-.nav07_kj h3{
-	font-size: 20px;
-	font-weight: 600;
-	letter-spacing: 3px;
-	color: rgba(40,40,40,0.8);
-	margin: 20px 0px;
-}
-.nav07_kj h4{
-	font-size: 15px;
-	font-weight: 600;
-	letter-spacing: 3px;
-	color: rgba(40,40,40,0.8);
-	margin: 10px 0px;
-}
-.nav07_kj h5{
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 3px;
-	color: rgba(40,40,40,0.8);
-	margin: 8px 0px;
-}
-
-.nav07_kj p{
-	width: 90%;
-	text-align: justify;
-	line-height: 40px;
-	text-indent: 2em;
-	font-size: 14px;
-	text-shadow: 10px 10px 10px #909090;
-	font-weight: 400;
-	letter-spacing: 2px;
-	color: rgba(40,40,40,0.9);
-	border-bottom: 1px dashed rgba(40,40,40,0.2);
-}
-.nav07_kj p .lj{
-	width: 90%;
-	text-align: justify;
-	line-height: 40px;
-	text-indent: 2em;
-	font-size: 14px;
-	text-shadow: 10px 10px 10px #df3838;
-	font-weight: 400;
-	/* letter-spacing: 2px; */
-	color: rgba(40,40,40,0.9);
-	border-bottom: 1px dashed rgba(40,40,40,0.2);
 }
 </style>

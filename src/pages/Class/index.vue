@@ -45,7 +45,7 @@
                       <span>学习记录</span>
                   </li>
                 </router-link>
-				<li id="cleft_li08"><img src="./font/cnmsb01.png" /><span>退课</span></li>
+				<li id="cleft_li08" @click="quitClass"><img src="./font/cnmsb01.png" /><span>退课</span></li>
 			</ul>
 
 
@@ -61,9 +61,53 @@
 </template>
 
 <script>
+import {reqRemoveCourse} from '@/api'
+import { Msgbox, Message } from 'element3'
 export default {
 	mounted(){
 		console.log('class');
+	},
+	methods:{
+		quitClass(){
+			Msgbox
+            .confirm('','您确定要退出课程吗', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              type: 'warning',
+              center: true,
+              lockScroll:false,
+              closeOnClickModal:false
+            })
+            .then(async () => {
+                try {
+					const res = reqRemoveCourse(this.$route.params.courseId)
+					console.log(res.data);
+					if(res.data.code==200){
+						setInterval(() => {
+							Message({
+								type: 'success',
+								message: res.data.msg
+							})
+						}, 300);
+						this.$route.path('/student')
+					}else{
+						Message({
+							type: 'info',
+							message: res.data.msg
+						})
+					}
+
+                } catch (error) {
+                    console.log('reqAddCourse',error);
+                }
+            })
+            .catch(() => {
+              Message({
+                type: 'info',
+                message: '取消退课'
+              })
+            })
+		}
 	}
 
 }
@@ -71,6 +115,9 @@ export default {
 
 
 <style scoped>
+.el-message-box__btns button:nth-child(2) {
+    margin-left: 50px;
+}
 a{
 	text-decoration: none;
 }

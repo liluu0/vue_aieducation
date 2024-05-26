@@ -1,224 +1,62 @@
 <template>
-    <div id="nav07">
-      <div class="Massage minHeight">
-            <div class="nav02_kj">
-              <h3>😁课程内容</h3>
-              <div class="nav02_grzl_headimg">
-                <!-- <img src="../img/tx.jpg" alt="[头像]"> -->
-  
-                <div  class="block">
-                   <label  class="icon icon-xiangji1 iconfont"></label>
-                  <el-image @click="changeImage"  :src="this.personal.studentImage">
-                    <template #placeholder>
-                      <div class="image-slot">加载中<span class="dot">...</span></div>
-                    </template>
-                  </el-image>
-                  <input type="file"  ref="fileInput" @change="handleFileUpload" style="display: none;">
-                </div>
-              </div>
-              <div class="nav02_grzl_txt">
-                              <p><b>姓名：</b>{{this.personal.name}}</p>
-                              <p><b>性别：</b>{{this.personal.sex}}</p>
-                              <p><b>年龄：</b>{{this.personal.age}}</p>
-                              <p><b>手机号：</b>{{this.personal.studentPhone}}</p>
-                              <p><b>地址：</b>{{this.personal.address}}</p>
+    <div id="nav02">
+                      <div class="nav02_bg">
+                          <div class="nav02_bt">课程首页</div>
+                      </div>
+                      <div class="classContent">
+                          <!-- 课程资料 -->
+                          <div class="nav02_kj">
+                              <h3>😁课程内容</h3>
+                              <div class="nav02_grzl_txt">
+                                  <p>网名：土豆云虚拟主机</p>
+                                  <p>邮箱：www.ttyuki.cn@gmail.com</p>
+                                  <p>性别：boy</p>
+                                  <p>年龄：不告诉你 [一位有理想的青少年]</p>
+                                  <p>特长：腿特长</p>
+                                  <p>爱好：音乐、运动、设计、摄影、COSplay 等……</p>
+                                  <p>性格：落落大方,喜欢自由</p>
+                                  <p>梦想：实现财富自由</p>
+                                  <p>语录：凡心所向，素履所往，生如逆旅，一苇以航。——《尘曲》</p>
+                                  <p>语录：合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。——《道德经·第六十四章》</p>
+                              </div>
+                          </div>
+                          <!-- 教师介绍 -->
+                          <div class="nav02_kj">
+                              <h3>😁教师介绍</h3>
+                              <p>
+                                  本人学识渊博，经验丰富，代码风骚，效率恐怖。C/C＋＋，java，php无不精通，熟练掌握各种框架。
+                              </p>
+                          </div>
+                          <!-- 智能课程评价 -->
+                          <div class="nav02_kj">
+                              <h3>😁课程评价和学习建议</h3>
+                              <AiContent/>
                           </div>
                       </div>
-      </div>
-      <!-- 背景margin -->
-      <div class="bgmargin">
-      </div>
-          
-      <div class="Massage minHeight">
-        <div class="nav02_kj">
-              <h3>😁教/育/信/息</h3>
-              <div class="education_txt">
-                              <p><b>学校：</b>{{this.personal.schoolName}}</p>
-                              <p><b>学历：</b>{{this.personal.educationalBackground}}</p>
-                          </div>
-                      </div>
-      </div>
-      <!-- 背景margin -->
-      <div class="bgmargin">
-      </div>
-          
-      <div class="Massage minHeight">
-        <div class="nav02_kj">
-              <h3>😁情/况/汇/总</h3>
-              <div class="education_txt">
-                              <p><b>学校：</b>{{this.personal.schoolName}}</p>
-                              <p><b>学历：</b>{{this.personal.educationalBackground}}</p>
-                          </div>
-                      </div>
-      </div>
-      <!-- 背景margin -->
-      <div class="bgmargin">
-      </div>
-          
-      <div class="Massage minHeight">
-        <div class="nav02_kj">
-              <h3>😁推/荐/计/划</h3>
-              <div class="education_txt">
-                              <p><b>学校：</b>{{this.personal.schoolName}}</p>
-                              <p><b>学历：</b>{{this.personal.educationalBackground}}</p>
-                          </div>
-                      </div>
-      </div>
-  
-  
-  </div>
+                  </div>
 </template>
   
 <script>
-  import {reqStudentPersonal,reqPictureUpload} from '@/api'
-    export default {
-      data () {
-        return {
-          personal:{}
-        }
-      },
-      async mounted(){
-        try {
-          const res = await reqStudentPersonal()
-          this.personal = res.data.data
-          // console.log(this.personal);
-          if(!this.personal.studentImage){
-            this.personal.studentImage = 'https://img2.baidu.com/it/u=3022488819,1069187648&fm=253&app=138&size=w931&n=0&f=JPG&fmt=auto?sec=1716224400&t=6241caa48928abb8b17b659189b937bc'
-          }
-        } catch (error) {
-          console.log(reqStudentPersonal,error);
-        }
-  
-      },
-      methods:{
-        changeImage(){
-          console.log('changeImage');
-          this.$refs.fileInput.click();
-        },
-  
-        async handleFileUpload(event) {
-          const file1 = event.target.files[0];
-          console.log(file1);
-          // 创建 FormData 对象
-          let file = new FormData();
-          console.log(file);
-          file.append("file", file1);
-          console.log(file);
-  
-  // fetch('http://localhost:8088/aiEducation/student/common/upload', {
-  //     method: 'POST',
-  //     body: formData,
-  //     headers: {
-  //         'Content-Type': 'multipart/form-data'
-  //     }
-  // })
-  // .then(response => response.json())
-  // .then(data => console.log(data))
-  // .catch(error => console.error('Error:', error));
-  
-  
-                      try {
-                        const res = await reqPictureUpload(file)
-                        console.log(res.data);
-                        
-                      } catch (error) {
-                        console.error('reqPictureUpload',error);
-                      }
-                      
-        },
-      
-      }
+import AiContent from '@/components/AiContent'
+export default {
+    components:{
+        AiContent
     }
-  </script>
+
   
-  <style scoped> 
-  .Massage {
-    padding: 0 0 30px 30px;
-  }
-  .nav02_kj{
-      width: 100%;
-      text-align: left;
+}
+</script>
+  
+<style scoped>
+  .classContent {
+      margin-bottom: 80px;
       overflow: hidden;
   }
-  .nav02_kj h3{
-    height: 53px;
-    line-height: 47px;
-    border-bottom: 3px solid #f0f0f2;
-    width: 100%;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      color: rgba(40,40,40,0.8);
-      margin: 10px 0px;
-  }
-  .nav02_grzl_headimg{
-    padding: 10px 30px 0 0;
-      height: 100%;
-      float: left;
-  }
-  .nav02_grzl_headimg .block{
-    cursor: pointer;
-      width: 200px;
-      border-radius: 30px;
-      box-shadow: 0px 0px 10px rgba(40,40,40,0.1);
-    /* border:  3px solid var(--primary-color); */
-    
-    transition: filter 0.2s;
-  }
-  .nav02_grzl_headimg .block:hover{
-    filter: grayscale(100%);
-  }
-  
-  .nav02_grzl_txt{
-      border-left: 2px dashed rgba(40,40,40,0.2);
-      height: 100%;
-    width: 80%;
-      float: left;
-      padding-left: 30px;
-  }
-  .education_txt {
-    height: 100%;
-      padding-left: 30px;
-  }
-  p{
-    width: 100%;
-    padding-bottom: 10px;
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      line-height: 50px;
-      color: rgba(40,40,40,0.9);
-  }
-  .minHeight {
-      min-height: 200px;
-    background-color: var(--shell-color);
-  }
-  
-  .bgmargin {
-      height: 20px;
-      width: 106%;
-    margin-left: -30px;
-  }
-  .fl {
-      float: left;
-  }
-  .color000 {
-      color: #000;
-  }
-  /* 分界 */
-  .clearfix:after {
-      content: " ";
-      display: block;
-      height: 0px;
-      clear: both;
-  }
-  
-  /*-----Nav07-本站源码-内容区域-右侧------*/
-  #nav07{
-      background-color: #efefef;
+  /*-----Nav02-关于本站-内容区域-右侧------*/
+  #nav02{
       width: 100%;
-      padding: 30px 30px;
       height: 100%;
+      background-color: #efefef;
       overflow-y: scroll;
       overflow-x: hidden;
       scrollbar-width: none;
@@ -226,20 +64,83 @@
       position: absolute;
       top: 0;
       right: 0;
-      z-index: 2;
+      z-index: 6;
   }
   /* 设置滚动条的样式 */
-  #nav07::-webkit-scrollbar {
+  #nav02::-webkit-scrollbar {
      width:8px;
   }
   /* 滚动槽 */
-  #nav07::-webkit-scrollbar-track {
+  #nav02::-webkit-scrollbar-track {
      -webkit-box-shadow:rgba(254,254,254,1);
      border-radius:10px;
   }
   /* 滚动条滑块 */
-  #nav07::-webkit-scrollbar-thumb {
+  #nav02::-webkit-scrollbar-thumb {
      border-radius:3px;
      background-color: rgba(40,40,40,0.6);
+  }
+  .nav02_bg{
+      width: 100%;
+      height: 420px;
+      /* 关于站长页面顶部头图 */
+      background-image: url(./img/guanyuzhanzhang.jpg);
+      background-size: cover;
+      /* background-position: center bottom; */
+      /* background-repeat: no-repeat; */
+      background-repeat: round;
+      position: relative;
+  }
+  .nav02_bt{
+      width: 240px;
+      height: 60px;
+      line-height: 60px;
+      /* 顶图文字背景颜色 */
+      background-image: linear-gradient(to top left,#25d8df , #CD69C9);
+      border-radius: 5px;
+      padding: 0px 10px;
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      color: #282828;
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-align: center;
+  }
+  .nav02_kj{
+      width: 90%;
+      margin: 30px auto 30px auto;
+      text-align: left;
+      overflow: hidden;
+  }
+  .nav02_kj h3{
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(40,40,40,0.8);
+      margin: 30px 0px;
+  }
+  
+  .nav02_grzl_txt p{
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 50px;
+      color: rgba(40,40,40,0.9);
+      border-bottom: 1px dashed rgba(40,40,40,0.08);
+  }
+  .nav02_kj p{
+      width: 100%;
+      text-align: justify;
+      line-height: 40px;
+      text-indent: 2em;
+      font-size: 14px;
+      text-shadow: 10px 10px 10px #909090;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: rgba(40,40,40,0.9);
+      border-bottom: 1px dashed rgba(40,40,40,0.2);
   }
   </style>
