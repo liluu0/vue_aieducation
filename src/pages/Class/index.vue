@@ -80,16 +80,16 @@ export default {
             })
             .then(async () => {
                 try {
-					const res = reqRemoveCourse(this.$route.params.courseId)
+					const res = await reqRemoveCourse(this.$route.params.courseId)
 					console.log(res.data);
 					if(res.data.code==200){
-						setInterval(() => {
+						setTimeout(() => {
 							Message({
 								type: 'success',
 								message: res.data.msg
 							})
 						}, 300);
-						this.$route.path('/student')
+						this.$router.push("/student") 
 					}else{
 						Message({
 							type: 'info',
@@ -98,7 +98,7 @@ export default {
 					}
 
                 } catch (error) {
-                    console.log('reqAddCourse',error);
+                    console.log('reqRemoveCourse',error);
                 }
             })
             .catch(() => {

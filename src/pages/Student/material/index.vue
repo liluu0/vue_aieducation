@@ -164,7 +164,7 @@ export default {
 
 /* 页面五-站点展示 */
 #nav05{
-	width: 89.5%;
+	width: 89.3%;
 	height: 100%;
 	background-color: #efefef;
 	overflow-y: scroll;

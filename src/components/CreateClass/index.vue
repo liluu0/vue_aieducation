@@ -48,7 +48,7 @@ export default {
     return {
       courseData: {
         courseName:'',
-        courseImage:'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1mPpwN.img?w=640&h=360&m=6&x=262&y=108&s=105&d=105',
+        courseImage:'',
         courseIntroduce:'',
         courseDemand:'',
         courseTarget:'',
@@ -61,13 +61,16 @@ export default {
         imagefile.value = event.target.files[0];
         // 创建 FormData 对象
         const formData = new FormData();
-
         // 将图片文件添加到 FormData 对象中
         formData.append("file", imagefile.value);
-        console.log(imagefile.value);
-        console.log(formData);
         const response = await reqPictureUpload(formData)
-        console.log(response);
+        if(response.data.code ==200){
+          this.courseData.courseImage = response.data.data
+          Message({
+                type: 'success',
+                message: '图片上传成功'
+              })
+        }
 
       },
       async createBtn(){

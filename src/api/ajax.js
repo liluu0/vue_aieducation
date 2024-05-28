@@ -20,9 +20,6 @@ requests.interceptors.request.use((config)=>{
    if(getUUID()){
       config.headers.token = getUUID()
    }
-   if(config.url == '/student/common/upload'){
-    config.headers['Content-Type'] = 'multipart/form-data;';
-   }
    nProgress.start()
     return config;
  })

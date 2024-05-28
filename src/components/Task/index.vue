@@ -151,7 +151,6 @@ ul, ol, li {
     line-height: 20px;
     font-size: 14px;
     font-weight: 400;
-    /* color: #181E33; */
     max-width: 92%;
 }
 .bottomList ul li .right-content p.status {

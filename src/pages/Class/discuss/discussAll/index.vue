@@ -23,11 +23,157 @@
     
 	
 	<div class="dataCon">
-		<div v-if="true" class="dataCon_empty" style="">
+		<div v-if="false" class="dataCon_empty" style="">
 			<span>本课程还没有话题哦，快去发布一个吧～</span>
 		</div>
+
 		<div v-else>
-			aa
+			<ul class="dataBody">
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+        <li class="dataBody_td dataBody_topic">
+          <div class="dataBody_file">
+            <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
+          </div>
+          <div class="dataBody_right">
+              <div class="topicli_head">
+                <p class="topicli_head_left">
+                  <span class="author">xxxx</span>
+                  <span class="time">01-12 00:26</span>
+                </p>
+              </div>
+                <div class="topicli_title">
+                    <span class="topicli_title_text">序列化</span>
+                </div>
+          </div>
+        </li>
+      </ul>
 		</div>
 
 	</div>
@@ -49,25 +195,10 @@
 				</div>
 			</div> 
 			<div class="edit_title">
-				<input type="text" name="title" placeholder="请输入标题" autocomplete="off">
+				<input type="text" name="title" v-model="this.discussData.discussionTitle" placeholder="请输入标题..." autocomplete="off">
 				<div class="deit_content">
 					
-					<div style="border: 1px solid #ccc">
-						<Toolbar
-						style="border-bottom: 1px solid #ccc"
-						:editor="editorRef"
-						:defaultConfig="toolbarConfig"
-						:mode="mode"
-						/>
-						<Editor
-						class="editor"
-						style="height: 500px; overflow-y: hidden;"
-						v-model="valueHtml"
-						:defaultConfig="editorConfig"
-						:mode="mode"
-						@onCreated="handleCreated"
-						/>
-					</div>
+					<textarea class="chandler-content_input-area" v-model="this.discussData.discussionContent" placeholder="请输入话题内容..."></textarea>
 					<br>
                 <el-button @click="createDiscuss" type="primary" plain round> 发 布 </el-button>
 				</div>
@@ -81,108 +212,142 @@
 </template>
 
 <script>
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { Message } from 'element3'
 export default {
-	components: { Editor, Toolbar },
-  setup() {
-    // 编辑器实例，必须用 shallowRef
-    const editorRef = shallowRef()
-    // 内容 HTML
-    const valueHtml = ref("<p>开始编辑<p>")
-    let articleId=null
-    let updatatime=null
-    // 模拟 ajax 异步获取内容
-    onMounted(() => {
-      
-         handleEdit()
-    
-    })
-    const editorConfig = {
-      MENU_CONF: {}
-    }
-   
-    const toolbarConfig = {}
-    editorConfig.MENU_CONF['uploadImage'] = {
-      server: 'http://localhost:8088/travelhelper/file/uploadTest',
-      uploadImgMaxSize: 30 * 1024 * 1024
-      // 上传图片的配置
-    }
-    // 组件销毁时，也及时销毁编辑器
-    onBeforeUnmount(() => {
-      const editor = editorRef.value
-      if (editor == null) return
-      editor.destroy()
-    })
-    const handleCreated = (editor) => {
-      editorRef.value = editor // 记录 editor 实例，重要！
-    }
-
-    // 提交函数
-    const submit = () => {
-//       const data = {arId: articleId,
-//                     content: valueHtml.value,
-//                     time: updatatime
-// 	  }
-//     reqSubmit(data).then(response => {
-//       Message({
-//       message: '提交成功',
-//       type: 'success'
-//     })
-//     // 处理服务器返回的响应
-//     handleEdit()
-//   })
-//   .catch(error => {
-//     console.error('提交失败：', error)
-//     // 处理错误
-//   })
-
-    }
-
-    // 修改函数
-    const handleEdit = async () => {
-
-    //   try {    
-    //              // 请求成功处理逻辑
-    //       await reqText().then(response => {
-    //       console.log(response.data.content)
-    //       // 处理服务器返回的响应
-    //         valueHtml.value=response.data.data.content;
-    //       articleId=response.data.data.arId
-    //       updatatime=response.data.data.time
-    //     })
-    //     .catch(error => {
-    //       console.error('提交失败：', error)
-    //       // 处理错误
-    //     })
-
-    //   } catch (error) {
-    //     console.error('修改文章错误:', error);
-    //   }
-      
-      // 设置编辑器内容为新的内容
-
-    }
+  data () {
     return {
-      editorRef,
-      valueHtml,
-      mode: 'default', // 或 'simple'
-      toolbarConfig,
-      editorConfig,
-      handleCreated,
-      submit,
-      handleEdit
+      discussData:{
+        discussionTitle:'',
+        discussionContent:''
+      }
     }
-  }
+  },
+  methods: {
+    createDiscuss(){
+      if(this.discussData.discussionTitle&&this.discussData.discussionContent){
+        console.log('发布',this.discussData);
+      }else{
+          Message('信息不能为空哦~')
+      }
+    }
+  },
+  
 
 }
 </script>
 
 <style scoped>
+/* 讨论列表 */
+.dataBody_td:after {
+    content: "";
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 0;
+    border-bottom: solid 1px #F2F2F2;
+}
+.topicli_title .topicli_title_text {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: calc(100% - 330px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    color: #131B26;
+}
+.topicli_title {
+    font-size: 16px;
+    line-height: 22px;
+    color: #131B26;
+    cursor: pointer;
+}
+.time {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #8A8B99;
+}
+.topicli_head .author {
+    max-width: 75px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.author {
+  font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #8A8B99;
+    margin-right: 6px;
+}
+.topicli_head {
+    position: relative;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.dataBody_topic .dataBody_right {
+    margin-left: 44px;
+}
+.dataBody_topic .dataBody_file img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.dataBody_topic .dataBody_file {
+    height: 30px;
+    margin-right: 10px;
+    top: 0;
+}
+
+.dataBody_file {
+    position: relative;
+    float: left;
+    height: 30px;
+    top: 3px;
+    margin-right: 14px;
+    z-index: 3;
+}
+.dataBody_topic {
+    padding: 20px 30px 10px;
+}
+.dataBody_td {
+    position: relative;
+    float: none;
+    min-height: 54px;
+    padding: 20px 10px 30px;
+    font-size: 12px;
+    color: #474C59;
+    box-sizing: border-box;
+}
+
+ul, ol, li {
+    list-style-type: none;
+}
 /* .deit_content {
  background-color: red;
 } */
+.chandler-content_input-area {
+
+    display: inline-block;
+    padding: 5px 14px;
+    border: 1px solid #D5D7D9;
+    border-radius: 4px;
+    margin: 15px 0px;
+
+    width: 100%;
+    height: 11vh;
+    max-height: 250px;
+    min-height: 250px;
+    color: #413659;
+    font-size: 14px;
+    line-height: 22px;
+    outline: none;
+    box-sizing: border-box;
+    background: transparent;
+}
 .fl {
     float: left;
 }
@@ -242,7 +407,7 @@ ul, ol, li {
     list-style-type: none;
 }
 .alltopic {
-	border-bottom: 2px solid #dcdfe6;
+	border-bottom: 1px solid #dcdfe6;
     padding-bottom: 10px;
 }
 .alltopic .breadcrumb {

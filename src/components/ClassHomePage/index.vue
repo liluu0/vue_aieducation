@@ -37,11 +37,20 @@
 </template>
   
 <script>
+import {reqCourseHomepage} from '@/api'
 import AiContent from '@/components/AiContent'
 export default {
     components:{
         AiContent
-    }
+    },
+    async mounted() {
+        try {
+            const res = await reqCourseHomepage(this.$route.params.courseId)
+            console.log(res.data);
+        } catch (error) {
+            console.log('reqCourseHomepage',error);
+        }
+    },
 
   
 }
