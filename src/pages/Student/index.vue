@@ -32,27 +32,17 @@
                         <a href="#">
                             <router-link to="/student/aiHelper">
                             <i class="iconfont icon-chat-white icon"></i>
-                            <span class="text nac-text">智能助手</span>
+                            <span class="text nac-text">AI心理陪聊</span>
                             </router-link>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <router-link to="/student/material">
-                                <i class="iconfont icon-nosearch icon"></i>
-                                <span class="text nac-text">
-                                    资料库
-                                </span>
-                            </router-link>
-                        </a>
-                    </li>
                     <!-- 我的收藏 -->
                     <li class="nav-link">
                         <a href="#">
                             <router-link to="/student/myCollect">
                                 <i class="iconfont icon-wodeshoucang icon"></i>
-                                <span class="text nac-text">我的收藏</span>
+                                <span class="text nac-text">AI工作助手</span>
                             </router-link>
                         </a>
                     </li>

@@ -10,7 +10,6 @@ import my from '@/pages/Teacher/my'
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
 import aiHelper from '@/pages/Student/aiHelper'
-import material from '@/pages/Student/material'
 import myCollect from '@/pages/Student/myCollect'
 import errorSet from '@/pages/Student/errorSet'
 import myPersonage from '@/pages/Student/myPersonage'
@@ -49,10 +48,6 @@ export default [
         {
             path:"aiHelper",
             component:aiHelper
-        },
-        {
-            path:"material",
-            component:material
         },
         {
             path:"myCollect",

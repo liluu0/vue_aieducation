@@ -54,9 +54,7 @@
                   <div class="chandler-content_input-box" >
                     <div class="chandler-content_input-box-content">
                       <div class="top" data-v-cbd49e0c="">
-                        <textarea class="chandler-content_input-area" placeholder="问我任何问题">
-
-                        </textarea>
+                        <textarea class="chandler-content_input-area" placeholder="问我任何问题"></textarea>
                       </div>
                       <div class="bottom" data-v-cbd49e0c="">
                         <div class="left" data-v-cbd49e0c="">
@@ -83,6 +81,9 @@ export default {
 
 <style scoped>
 /* 文本框 */
+.chandler-content_input-box .chandler-content_input-area:focus {
+  border: 1px solid blue;
+}
 .top {
     flex: 1;
     width: 100%;

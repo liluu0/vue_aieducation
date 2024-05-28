@@ -38,3 +38,6 @@ export const reqCourseMaterial = (courseId)=>requests({url:`/course/material/${c
 
 //根据id删除资料
 export const reqRemoveMaterial = (params)=>requests({url:`/teacher/delete`,method:'delete',params})
+
+//上传资料
+export const reqFileUpload = (courseId,file)=>requests({url:`/common/teacher/${courseId}/fileUpload`,method:'post',data:file})

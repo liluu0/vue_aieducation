@@ -11,6 +11,7 @@
                     </div> 
                 
                 <el-button v-if="this.isTeacher=='true'" @click="addMaterial" type="primary" plain round> + 添加资料</el-button>
+                <input type="file"  ref="fileInput" @change="handleFileUpload" style="display: none;">
                 </div>
 
                 <div class="dataCon">
@@ -26,8 +27,8 @@
                 </div>
                 
                 <div class="dataBody">
-                    <div v-if="this.materialData">
-                        暂无资料
+                    <div class="dataCon_empty" v-if="!(this.materialData&&this.materialData.length)">
+                        <span>暂无资料</span>
                     </div>
                     <div v-else>
                         <ul v-for="item in this.materialData" :key="item.materialId" class="dataBody_td">
@@ -69,7 +70,7 @@
 
 <script>
 import { Message } from 'element3'
-import {reqCourseMaterial,reqRemoveMaterial} from '@/api'
+import {reqCourseMaterial,reqFileUpload,reqRemoveMaterial} from '@/api'
 export default {
     data () {
         return {
@@ -129,13 +130,41 @@ export default {
 
         addMaterial(){
             console.log('添加资料');
-        }
+            this.$refs.fileInput.click();
+      },
+
+      async handleFileUpload(event) {
+        const file1 = event.target.files[0];
+        // 创建 FormData 对象
+        let file = new FormData();
+        file.append("file", file1);
+                    try {
+                      const res = await reqFileUpload(this.$route.params.courseId,file)
+                      console.log(res.data);
+                      this.loadData()
+                    } catch (error) {
+                      console.error('reqPictureUpload',error);
+                    }
+      },
     },
   
 }
 </script>
 
 <style scoped>
+  .dataCon_empty {
+      height: 200px;
+      color: #a8a8b3;
+      text-align: center;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .dataCon_empty span {
+      display: inline-block;
+      vertical-align: middle;
+  }
 /* 资料 */
 .dataCon {
     margin-top: 15px;

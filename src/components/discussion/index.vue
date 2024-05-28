@@ -5,7 +5,7 @@
       <div class="btn_group" tabindex="-1" aria-hidden="true">
               <div class="search-box">
                         <el-input placeholder="请输入内容" 
-                        v-model="input" 
+                        v-model="input"
                         prefix-icon="el-icon-search"
                         clearable> </el-input>
               </div> 
