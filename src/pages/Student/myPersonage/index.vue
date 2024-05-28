@@ -126,7 +126,7 @@ import {reqStudentPersonal,reqPictureUpload,reqStudentPersonalUpdate} from '@/ap
         // this.personalVirtual = this.personal
         this.personalVirtual = JSON.parse(JSON.stringify(this.personal)); // 深拷贝对象
       } catch (error) {
-        console.log(reqStudentPersonal,error);
+        console.log('reqStudentPersonal',error);
       }
 
     },

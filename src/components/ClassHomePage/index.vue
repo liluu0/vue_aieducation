@@ -1,6 +1,6 @@
 <template>
     <div id="nav02">
-                      <div class="nav02_bg">
+                      <div class="nav02_bg" ref="nav_bg">
                           <div class="nav02_bt">课程首页</div>
                       </div>
                       <div class="classContent">
@@ -8,24 +8,20 @@
                           <div class="nav02_kj">
                               <h3>😁课程内容</h3>
                               <div class="nav02_grzl_txt">
-                                  <p>网名：土豆云虚拟主机</p>
-                                  <p>邮箱：www.ttyuki.cn@gmail.com</p>
-                                  <p>性别：boy</p>
-                                  <p>年龄：不告诉你 [一位有理想的青少年]</p>
-                                  <p>特长：腿特长</p>
-                                  <p>爱好：音乐、运动、设计、摄影、COSplay 等……</p>
-                                  <p>性格：落落大方,喜欢自由</p>
-                                  <p>梦想：实现财富自由</p>
-                                  <p>语录：凡心所向，素履所往，生如逆旅，一苇以航。——《尘曲》</p>
-                                  <p>语录：合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。——《道德经·第六十四章》</p>
+                                <p><span>课 程 名 称：</span>{{this.course.courseName}}</p>
+                                <p><span>课 程 介 绍：</span>{{this.course.courseIntroduce}}</p>
+                                <p><span>课 程 要 求：</span>{{this.course.courseDemand}}</p>
+                                <p><span>课 程 目 标：</span>{{this.course.courseTarget}}</p> 
                               </div>
                           </div>
                           <!-- 教师介绍 -->
                           <div class="nav02_kj">
                               <h3>😁教师介绍</h3>
-                              <p>
-                                  本人学识渊博，经验丰富，代码风骚，效率恐怖。C/C＋＋，java，php无不精通，熟练掌握各种框架。
-                              </p>
+                                <p><span>教 师 姓 名：</span>{{this.teacher.name}}</p>
+                                <p><span>教 师 性 别：</span>{{this.teacher.sex=='0'?'女':'男'}}</p>
+                                <p><span>教 师 手 机 号：</span>{{this.teacher.phone}}</p>
+                                <p><span>教 师 职 位：</span>{{this.teacher.position}}</p> 
+                                <p><span>教 师 简 介：</span>{{this.teacher.detail}}</p> 
                           </div>
                           <!-- 智能课程评价 -->
                           <div class="nav02_kj">
@@ -40,6 +36,12 @@
 import {reqCourseHomepage} from '@/api'
 import AiContent from '@/components/AiContent'
 export default {
+    data () {
+        return {
+            course:{},
+            teacher:{}
+        }
+    },
     components:{
         AiContent
     },
@@ -47,6 +49,9 @@ export default {
         try {
             const res = await reqCourseHomepage(this.$route.params.courseId)
             console.log(res.data);
+            this.course = res.data.data.course
+            this.teacher = res.data.data.teacher
+            this.$refs.nav_bg.style.backgroundImage = `url(${this.course.courseImage})`;
         } catch (error) {
             console.log('reqCourseHomepage',error);
         }
@@ -57,6 +62,13 @@ export default {
 </script>
   
 <style scoped>
+.nav02_kj span {
+   display: inline-block; /* 设置为内联块元素，使得宽度生效 */
+   text-align: right;
+   width: 175px; /* 设置宽度 */
+   padding: 0 12px;
+   font-weight: bold;
+}
   .classContent {
       margin-bottom: 80px;
       overflow: hidden;
@@ -91,12 +103,8 @@ export default {
   }
   .nav02_bg{
       width: 100%;
-      height: 420px;
-      /* 关于站长页面顶部头图 */
-      background-image: url(./img/guanyuzhanzhang.jpg);
+      height: 450px;
       background-size: cover;
-      /* background-position: center bottom; */
-      /* background-repeat: no-repeat; */
       background-repeat: round;
       position: relative;
   }
@@ -145,10 +153,10 @@ export default {
       text-align: justify;
       line-height: 40px;
       text-indent: 2em;
-      font-size: 14px;
+      font-size: 16px;
       text-shadow: 10px 10px 10px #909090;
       font-weight: 400;
-      letter-spacing: 2px;
+      /* letter-spacing: 2px; */
       color: rgba(40,40,40,0.9);
       border-bottom: 1px dashed rgba(40,40,40,0.2);
   }

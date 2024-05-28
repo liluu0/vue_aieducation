@@ -4,11 +4,11 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="./image/1.jpg" alt="">
+                    <img src="@/assets/img/robot.jpg" alt="">
                 </span>
                 <div class="text logo-text">
-                    <span class="name">教育小窝</span>
-                    <span class="software">-教学ing-</span>
+                    <span class="name">教育中心</span>
+                    <span class="software">- 学习ing -</span>
                 </div>
             </div>
             <i class="iconfont icon-left-circle toggle"></i>

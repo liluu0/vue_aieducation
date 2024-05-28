@@ -31,7 +31,7 @@ import {reqHomePage} from '@/api'
 
       const activeName = ref('second')
       const handleClick = (tab, event) => {
-        console.log(tab, event)
+        // console.log(tab, event)
       }
       return { activeName, handleClick }
     },

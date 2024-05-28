@@ -26,33 +26,38 @@
                 </div>
                 
                 <div class="dataBody">
-                        <ul tabindex="0" role="option" class="dataBody_td">
-                            <li class="dataBody_file"  @click="openMaterial"><img src="./img/pdfImg.png">
+                    <div v-if="this.materialData">
+                        暂无资料
+                    </div>
+                    <div v-else>
+                        <ul v-for="item in this.materialData" :key="item.materialId" class="dataBody_td">
+                            <li class="dataBody_file"  @click="openMaterial">
+                                <img src="@/assets/img/fileImg.png">
                             </li>
                             <li class="dataBody_name_stu">
                                 <dl class="dataBody_text"  @click="openMaterial">
                                             <dt>
                                                 <div class="dataBody_ellipsis">
-                                                    <a class="rename_title" href="javascript:" title="Go语言实战.pdf">Go语言实战.pdf</a>
+                                                    <a class="rename_title" href="javascript:">{{item.name}}</a>
                                                 </div>
                                             </dt>
                                 </dl>
                                 <ul class="operate">
                                         <li class="operate_down">
-                                            <a class="colorBlue fontClass" target="_blank" @click="download">下载</a>
+                                            <a class="colorBlue fontClass" target="_blank" @click="download(item.content,item.name)">下载</a>
                                         </li>
                                         <li class="operate_copy_cloud_disk" v-if="this.isTeacher=='true'">
-                                            <a class="colorRed fontClass" href="javascript:" @click="del">
+                                            <a class="colorRed fontClass" href="javascript:" @click="del(item.materialId)">
                                                 删除
                                             </a>
                                         </li>
                                 </ul>
                             </li>
-                            <li class="dataBody_size_stu"> 9MB </li>
-                            <li class="dataBody_creater_stu"><span class="text-ellipsis2">黄伟</span></li>
-                            <li class="dataBody_time_stu">2022-03-17 20:34</li>
+                            <li class="dataBody_size_stu"> {{item.type}} </li>
+                            <li class="dataBody_creater_stu"><span class="text-ellipsis2">{{item.creator}}</span></li>
+                            <li class="dataBody_time_stu">{{item.createDate}}</li>
                         </ul>
-
+                    </div>
                 </div>
 
             </div>
@@ -63,21 +68,65 @@
 </template>
 
 <script>
+import { Message } from 'element3'
+import {reqCourseMaterial,reqRemoveMaterial} from '@/api'
 export default {
+    data () {
+        return {
+            materialData:[]
+        }
+    },
     props:['isTeacher'],
     mounted(){
-        console.log(this.isTeacher);
+        // console.log(this.isTeacher);
+        this.loadData()
     },
     methods: {
+        async loadData(){
+            try {
+            const res = await reqCourseMaterial(this.$route.params.courseId)
+            this.materialData = res.data.data
+            console.log(res.data.data,this.materialData);
+        } catch (error) {
+            console.log('reqCourseMaterial',error);
+        }
+        },
+
         openMaterial(){
             console.log('打开资料');
         },
-        download(){
-            console.log('下载');
+
+        download(content,name){
+            // 创建一个<a>标签
+            const link = document.createElement("a");
+            link.href = content;
+            link.download = name; // 下载文件的名称
+            // 将<a>标签添加到DOM中
+            document.body.appendChild(link);
+            // 触发点击事件
+            link.click();
+            // 移除<a>标签
+            document.body.removeChild(link);
         },
-        del(){
-            console.log('删除');
+
+        del(materialId){
+            try {
+                const res = reqRemoveMaterial({
+                    materialId:materialId,
+                    courseId:this.$route.params.courseId
+                })
+                console.log(res.data);
+                Message({
+                    message:'资料删除成功',
+                    type:'success'
+                })
+                this.loadData()
+            } catch (error) {
+                console.log('reqRemoveMaterial',error);
+            }
+            
         },
+
         addMaterial(){
             console.log('添加资料');
         }

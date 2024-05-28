@@ -6,7 +6,7 @@
       <div class="cleft_top">
         <div class="cleft_topbg">
         </div>
-        <div class="cleftbg_p">要每天都有好心情吖</div>
+        <div class="cleftbg_p">智能教育平台--课程中心</div>
       </div>
       <!-- 首页 -->
               <router-link :to="'/teacherClass/' + $route.params.courseId+'/teacherClass_homePage'">
@@ -61,7 +61,7 @@
 <script>
 export default {
 mounted(){
-  // console.log('class');
+  document.title = "智能教育平台--课程中心";
 }
 
 }
@@ -125,14 +125,14 @@ height: 180px;
 margin-bottom: 10px;
 }
 .cleft_topbg{
-width: 100%;
-height: 140px;
-/* 左上角头像下面的背景图片 */
-background-image: url(./font/tlbg.jpg);
-background-position: center center;
-background-repeat: no-repeat;
-background-size: cover;
-position: relative;
+	width: 100%;
+	height: 140px;
+	/* 左上角头像下面的背景图片 */
+	background-image: url(@/assets/img/robot.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
 .cleftbg_p{
 /* width: 90%; */
