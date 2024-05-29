@@ -26,7 +26,7 @@
 
           <!-- <div class="ew-resize" data-v-bed3d893=""></div> -->
 
-          <div class="chat-page-wrap w-full h-full flex-1 px-24px">
+          <div class="F w-full h-full flex-1 px-24px">
             <div class="chat-com-content-wrap" data-v-34a1b23e="">
               <div class="content-header">
                 学生智能助手
@@ -54,14 +54,17 @@
                   <div class="chandler-content_input-box" >
                     <div class="chandler-content_input-box-content">
                       <div class="top" data-v-cbd49e0c="">
-                        <textarea class="chandler-content_input-area" placeholder="问我任何问题"></textarea>
+                        <textarea v-model="this.messageData" 
+                                  class="chandler-content_input-area" 
+                                  placeholder="可以问我任何问题哦~"></textarea>
                       </div>
                       <div class="bottom" data-v-cbd49e0c="">
-                        <div class="left" data-v-cbd49e0c="">
-                          上传文件、语音
+                        <div class="left">
+                          <!-- <div class="paperclip chandler-content_input-box-icon"></div> -->
+                           <img class="paperclip" src="@/assets/img/voiceImg.jpg" @click="voiceBtn">
                         </div>
                         <div class="right" data-v-cbd49e0c="">
-                          发布
+                           <img class="send" src="@/assets/img/send.jpg" @click="sendBtn">
                         </div>
                       </div>
                     </div>
@@ -75,14 +78,67 @@
 
 <script>
 export default {
+  data () {
+    return {
+      messageData:''
+    }
+  },
+  methods:{
+    voiceBtn(){
+      console.log('点击了语音按钮');
+    },
+    sendBtn(){
+      console.log('点击了发送',this.messageData);
+      this.messageData = ''
+    }
+  }
    
 }
 </script>
 
 <style scoped>
+ .right .send {
+    margin-left: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffc800;
+    transition: all .3s linear;
+    cursor: pointer;
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.left .paperclip {
+    margin-right: 26px;
+    /* width: 22px; */
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.bottom {
+    padding: 8px 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 /* 文本框 */
-.chandler-content_input-box .chandler-content_input-area:focus {
+.chandler-content_input-area:focus {
   border: 1px solid blue;
+  transition:  0.3s ease; /* 添加过渡效果 */
+  border-radius: 22px;
 }
 .top {
     flex: 1;
@@ -92,7 +148,7 @@ export default {
 .chandler-content_input-area {
     resize: none;
     width: 100%;
-    padding: 12px 0;
+    padding: 12px 10px;
     height: 11vh;
     max-height: 100px;
     min-height: 60px;
@@ -272,7 +328,9 @@ export default {
     padding: 24px 0 24px 16px;
     margin-left: 1px;
     /* background: linear-gradient(180deg,rgba(255,255,255,.72) 75.63%,rgba(255,241,168,.72) 100%); */
-    background: linear-gradient(180deg,rgba(255, 255, 255, 0.72) 75.63%,rgba(106, 103, 248, 0.72) 100%);
+    /* background: linear-gradient(180deg,rgba(255, 255, 255, 0.72) 75.63%,rgba(106, 103, 248, 0.72) 100%); */
+    background: linear-gradient(180deg,rgba(255, 255, 255, 0.72) 75.63%,rgba(158, 157, 250, 0.72) 100%);
+
     /* background: linear-gradient(180deg,rgba(255, 255, 255, 0.72) 75.63%,rgba(74, 71, 243, 0.72) 100%); */
 }
 .w-full {

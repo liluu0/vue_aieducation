@@ -12,7 +12,7 @@ export const reqStudentPersonal = ()=>requests({url:'/student/personalInfo',meth
 
 export const reqPictureUpload = (file)=>requests({url:"/common/upload",method:"post",data:file})
 
-export const reqCourseTasks = (courseId)=>requests({url:`/student/courseTasks/${courseId}`,method:'get'})
+export const reqCourseTasks = (courseId)=>requests({url:`/course/courseTasks/${courseId}`,method:'get'})
 
 export const reqTeacherCourse = ()=>requests({url:'/teacher/courses',method:'get'})
 
