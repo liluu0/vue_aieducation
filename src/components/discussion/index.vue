@@ -16,166 +16,37 @@
       <div class="alltopic clearfix">
       <ul class="breadcrumb">
           <li class="active">
-              <span>共<b>13</b>条话题</span>
+              <span>共<b>{{this.discussNum}}</b>条讨论</span>
           </li>
       </ul>
       </div>
       
       
       <div class="dataCon">
-          <div v-if="false" class="dataCon_empty" style="">
-              <span>本课程还没有话题哦，快去发布一个吧～</span>
+          <div v-if="!this.discussNum" class="dataCon_empty" style="">
+              <span>本课程还没有讨论哦，快去发布一个吧～</span>
           </div>
   
           <div v-else>
-              <ul class="dataBody">
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
+           <ul class="dataBody">
+            <li v-for="(item,index) in this.allDiscussions" :key="index" class="dataBody_td dataBody_topic">
+                <div class="dataBody_file">
+                <img :src="item.image">
                 </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-          <li class="dataBody_td dataBody_topic">
-            <div class="dataBody_file">
-              <img src="http://dd2311270953.cdn.bcebos.com/uploads/userfiles/18/images/pageimg/20220710/18-220G01523126.jpeg">
-            </div>
-            <div class="dataBody_right">
-                <div class="topicli_head">
-                  <p class="topicli_head_left">
-                    <span class="author">xxxx</span>
-                    <span class="time">01-12 00:26</span>
-                  </p>
-                </div>
-                  <div class="topicli_title">
-                      <span class="topicli_title_text">序列化</span>
-                  </div>
-            </div>
-          </li>
-        </ul>
+                    <div class="dataBody_right">
+                        <div class="topicli_head">
+                        <p class="topicli_head_left">
+                            <span class="author">{{item.name}}</span>
+                            <span class="time">{{item.commentTime}}</span>
+                        </p>
+                        </div>
+                        <div class="topicli_title">
+                            <span class="topicli_title_text">{{item.title}}</span>
+                        </div>
+                    </div>
+              </li>
+            </ul>
           </div>
-  
       </div>
     </div>
     
@@ -186,7 +57,7 @@
     <div>
   
       <div class="editContainer">
-          <div class="edit_headTitle">新建话题</div> 
+          <div class="edit_headTitle">新建讨论</div> 
           <div class="edit_main">
               <div class="edit_target">
                   <span class="fl">发布给</span> 
@@ -195,10 +66,10 @@
                   </div>
               </div> 
               <div class="edit_title">
-                  <input type="text" name="title" v-model="this.discussData.discussionTitle" placeholder="请输入标题..." autocomplete="off">
+                  <input type="text" name="title" v-model="this.discussData.title" placeholder="请输入标题..." autocomplete="off">
                   <div class="deit_content">
                       
-                      <textarea class="chandler-content_input-area" v-model="this.discussData.discussionContent" placeholder="请输入话题内容..."></textarea>
+                      <textarea class="chandler-content_input-area" v-model="this.discussData.content" placeholder="请输入讨论内容..."></textarea>
                       <br>
                   <el-button @click="createDiscuss" type="primary" plain round> 发 布 </el-button>
                   </div>
@@ -213,19 +84,48 @@
   
 <script>
 import { Message } from 'element3'
+import {reqAllDiscussions,reqAddDiscussion} from '@/api'
 export default {
     data () {
       return {
+        discussNum:0,
         discussData:{
-          discussionTitle:'',
-          discussionContent:''
-        }
+          title:'',
+          content:''
+        },
+        allDiscussions:[]
       }
     },
+    mounted() {
+      this.loadAllDiscussions()
+    },
     methods: {
-      createDiscuss(){
-        if(this.discussData.discussionTitle&&this.discussData.discussionContent){
-          console.log('发布',this.discussData);
+      async loadAllDiscussions(){
+        try {
+          const res = await reqAllDiscussions(this.$route.params.courseId)
+          this.discussNum = res.data.data.length
+          this.allDiscussions = res.data.data
+          console.log(this.discussNum,this.allDiscussions);
+          
+        } catch (error) {
+          console.log('reqAllDiscussions',error);
+        }
+
+      },
+      async createDiscuss(){
+        if(this.discussData.title&&this.discussData.content){
+          try {
+            console.log('发布',this.discussData);
+            const res = await reqAddDiscussion(this.$route.params.courseId,{
+              title:'22'},
+              {content:'22'
+            })
+            this.discussData.title = ''
+            this.discussData.content = ''
+            console.log(res.data);
+          } catch (error) {
+            console.log('reqAddDiscussion',error);            
+          }
         }else{
             Message('信息不能为空哦~')
         }

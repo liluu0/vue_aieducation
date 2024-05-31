@@ -9,9 +9,7 @@
               <myDiscuss/>
             </el-tab-pane>
           </el-tabs>
-
           </div>
-
 				</div>
 </template>
 

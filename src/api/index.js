@@ -41,3 +41,15 @@ export const reqRemoveMaterial = (params)=>requests({url:`/teacher/delete`,metho
 
 //上传资料
 export const reqFileUpload = (courseId,file)=>requests({url:`/common/teacher/${courseId}/fileUpload`,method:'post',data:file})
+
+//查询所有讨论 
+export const reqAllDiscussions = (courseId)=>requests({url:`/discussions/${courseId}/byCourse`,method:'get'})
+
+//添加讨论 
+export const reqAddDiscussion = (courseId,title,content)=>requests({url:`/discussions/${courseId}/add`,method:'post',title,content})
+
+//查询我的讨论
+export const reqAllMyDiscussion = (courseId)=>requests({url:`/discussions/course/${courseId}`,method:'get'})
+
+//gpt聊天 
+export const reqGptAsk = (params)=>requests({url:'/gpt/ask',method:'get',params})
