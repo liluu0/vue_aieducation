@@ -42,7 +42,7 @@
                             <div class="bot-message">
                                 <div class="chat-message chatbot">{{item.chatGpt}}</div>
                             </div>
-                        </li>
+                        </li> 
                     </div>
 
                     </div>
@@ -56,12 +56,16 @@
                                   class="chandler-content_input-area" 
                                   placeholder="可以问我任何问题哦~"></textarea>
                       </div>
-                      <div class="bottom" data-v-cbd49e0c="">
+                      <div class="bottom">
                         <div class="left">
                            <img class="paperclip" src="@/assets/img/voiceImg.jpg" @click="voiceBtn">
+                           <div class="audio" v-if="this.isAudio">
+                            <i class="el-icon-loading"></i>
+                            正在录音中，点击暂停……
+                            </div>
                         </div>
-                        <div class="right" data-v-cbd49e0c="">
-                           <img class="send" src="@/assets/img/send.jpg" @click="sendBtn">
+                        <div class="right">
+                                <img class="send" src="@/assets/img/send.jpg" @click="sendBtn">
                         </div>
                       </div>
                     </div>
@@ -72,21 +76,77 @@
 </template>
 
 <script>
-import {reqGptAsk} from '@/api'
+import {reqGptAsk,reqAudioGet} from '@/api'
+import * as lamejs from 'lamejs';
+
 export default {
     data () {
         return {
             chatData:[],
-            messageData:''
+            messageData:'',
+            mediaRecorder: null,
+            chunks: [],
+            isAudio: false
         }
     },
     methods:{
     getCurrentTime() {
       return new Date().toLocaleString();
     },
-    voiceBtn(){
-      console.log('点击了语音按钮');
+    async voiceBtn(){
+        this.isAudio = !this.isAudio
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            this.mediaRecorder = new MediaRecorder(stream);
+    
+            this.mediaRecorder.ondataavailable = event => {
+              this.chunks.push(event.data);
+            };
+            if(this.isAudio){
+                this.mediaRecorder.start();
+            }else{
+                // mediaRecorder.stop();
+              const blob = new Blob(this.chunks, { type: 'audio/wav' });
+              this.convertToMP3(blob);
+              this.mediaRecorder = null;
+              this.chunks = [];
+            }
+      } catch (error) {
+        console.error('无法访问麦克风:', error);
+      }
     },
+
+    convertToMP3(blob) {
+    //   const lame = new lamejs();
+      const mp3Encoder = new lamejs.Mp3Encoder(1, 44100, 128);
+      const fileReader = new FileReader();
+      
+      fileReader.onload = () => {
+        const pcmData = new Int16Array(fileReader.result);
+        const mp3Data = mp3Encoder.encodeBuffer(pcmData);
+        const mp3Buffer = mp3Encoder.flush();
+        const mp3Blob = new Blob([new Uint8Array(mp3Buffer)], { type: 'audio/mp3' });
+        this.voicesend(mp3Blob);
+      };
+      fileReader.readAsArrayBuffer(blob);
+    },
+
+    async voicesend(blob){
+        console.log('收到了',blob);
+        // 将blob对象传递给后端，这里你可以使用fetch或者其他HTTP请求库
+        const formData = new FormData();
+        formData.append('audio', blob, 'recording.mp3');
+        console.log(formData);
+        try {
+            const res = await reqAudioGet(formData)
+            console.log(res.data);
+            
+        } catch (error) {
+            console.log('reqAudioGet',error);
+        }
+
+    },
+
     async sendBtn(){
         if(this.messageData == '') {
             return
@@ -112,8 +172,8 @@ export default {
         console.log('reqGptAsk',error);
       }
     }
-  }
-
+    },
+  
 
 }
 </script>
@@ -136,6 +196,11 @@ export default {
     font-style: normal;
     font-weight: 700;
     line-height: 1.2;
+}
+.left .audio {
+    padding: 5px 8px;
+    background: #d7d7e4;
+    border-radius: 5px;
 }
 .max-w-500px {
     max-width: 500px;
@@ -232,7 +297,7 @@ ul, ol, li {
     background-repeat: no-repeat;
 }
 .left .paperclip {
-    margin-right: 26px;
+    margin-right: 15px;
     /* width: 22px; */
     height: 25px;
     display: block;

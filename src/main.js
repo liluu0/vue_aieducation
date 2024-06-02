@@ -13,7 +13,8 @@ import {  ElTabs,
     setupGlobalOptions,
     ElImage,
     ElForm,
-    ElFormItem } from 'element3'
+    ElFormItem,
+    ElPopover } from 'element3'
 
 
 import * as API from "@/api"
@@ -24,7 +25,7 @@ app.use(router);
 app.use(setupGlobalOptions({ size: 'small', zIndex: 3000 }));
 app.use(ElTabs);
 app.use(ElTabPane).use(ElButton).use(ElInput)
-app.use(ElSelect).use(ElOption).use(ElImage).use(ElForm).use(ElFormItem)
+app.use(ElSelect).use(ElOption).use(ElImage).use(ElForm).use(ElFormItem).use(ElPopover)
 // 添加全局属性
 app.config.globalProperties.$API = API;
 

@@ -53,3 +53,6 @@ export const reqAllMyDiscussion = (courseId)=>requests({url:`/discussions/course
 
 //gpt聊天 
 export const reqGptAsk = (params)=>requests({url:'/gpt/ask',method:'get',params})
+
+//语音
+export const reqAudioGet = (params)=>requests({url:'/audio/get',method:'post',params})

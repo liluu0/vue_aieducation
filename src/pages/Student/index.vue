@@ -17,50 +17,50 @@
             <div class="menu">
                 <ul class="menu-links">
                     <!-- 主页 -->
-                    <li class="nav-link">
+                    <li  @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }" class="nav-link">
                         <a href="#">
                               <router-link to="/student/homePage">
                             <i class="iconfont icon-home-4-line icon"></i>
-                            <span class="text nac-text">
+                            <span  :class="{ 'activeText': activeIndex === 0 }" class="text nac-text">
                                 主页
                             </span>
                               </router-link>
                         </a>
                     </li>
                  <!-- 智能助手 -->
-                    <li class="nav-link">
+                    <li @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/aiHelper">
                             <i class="iconfont icon-chat-white icon"></i>
-                            <span class="text nac-text">AI心理陪聊</span>
+                            <span :class="{ 'activeText': activeIndex === 1 }"  class="text nac-text">AI心理陪聊</span>
                             </router-link>
                         </a>
                     </li>
 
                     <!-- 我的收藏 -->
-                    <li class="nav-link">
+                    <li  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/myCollect">
                                 <i class="iconfont icon-wodeshoucang icon"></i>
-                                <span class="text nac-text">AI工作助手</span>
+                                <span :class="{ 'activeText': activeIndex === 2 }" class="text nac-text">AI工作助手</span>
                             </router-link>
                         </a>
                     </li>
                     <!-- 错题集 -->
-                    <li class="nav-link">
+                    <li  @click="activeIndex = 3" :class="{ 'active': activeIndex === 3 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/errorSet">
                                 <i class="iconfont icon-shijian1 icon"></i>
-                                <span class="text nac-text">错题集</span>
+                                <span  :class="{ 'activeText': activeIndex === 3 }" class="text nac-text">翻译中心</span>
                             </router-link>
                         </a>
                     </li>
                     <!-- 我的 -->
-                    <li class="nav-link">
+                    <li  @click="activeIndex = 4" :class="{ 'active': activeIndex === 4 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/myPersonage">
                                 <i class="iconfont icon-gerenzhongxin icon"></i>
-                                <span class="text nac-text">我的</span>
+                                <span :class="{ 'activeText': activeIndex === 4 }" class="text nac-text">我的</span>
                             </router-link>
                         </a>
                     </li>
@@ -99,6 +99,11 @@
 <script>
 
 export default {
+  data () {
+    return {
+        activeIndex:0
+    }
+  },
   mounted(){
     const body = document.querySelector('body'),
         modeSwitch = body.querySelector(".toggle-switch"),
@@ -320,12 +325,19 @@ header {
 .shell li a:hover {
     background-color: var(--primary-color);
 }
-
 .shell li a:hover .icon,
 .shell li a:hover .text {
     color: var(--shell-color);
 }
+.activeText {
+    color: #fff;
+    
+}
 
+.active {
+    background-color: var(--primary-color);
+    border-radius: 6px;
+}
 .menu-bar {
     height: calc(100% - 55px);
     display: flex;
@@ -408,4 +420,5 @@ header {
 .dark .switch::before {
     left: 20px;
 }
+
 </style>

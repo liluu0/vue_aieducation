@@ -195,6 +195,8 @@ export default {
 	height: 420px;
 	/* 站点展示页面顶部头图 */
 	background-image: url(../img/zhandian.jpg);
+	/* background-image: url(@/assets/img/space.jpg); */
+
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -217,7 +219,7 @@ export default {
 	left: 0;
 	z-index: 3;
 	/* 站点展示页面顶部头图 */
-	background-image: url(../img/zhandian.jpg);
+	/* background-image: url(@/assets/img/space.jpg); */
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;

@@ -1,74 +1,49 @@
 <template>
 	<div id="nav05">
           <div class="left-nav-wrap !pt-24px">
-            dsdfs
+            <div class="top flex items-center px-12px">
+              <div class="chandler-ext-content-logo-com !w-40px !h-40px"></div>
+              <span class="text-18px ml-8px font-600">Ai工作助手</span>
+            </div>
+
+          <div class="content">
+            <ul class="module-list">
+              <li @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }">
+                <i class="el-icon-edit"></i>
+                <span class="name ml-6px">画图</span>
+              </li>
+              <li  @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }">
+                <i class="el-icon-s-opportunity"></i>
+                <span class="name ml-6px">幻灯片</span>
+              </li>
+              
+              <li  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }">
+                <i class="el-icon-picture-outline"></i>
+                <span class="name ml-6px">识物</span>
+              </li>
+            </ul>
+          </div>
+
           </div>
 
           <div class="chat-page-wrap w-full h-full flex-1 px-24px">
-            <div class="chat-com-content-wrap" data-v-34a1b23e="">
-              <div class="content-header">
-                学生智能助手
-              </div>
-              <!-- 中间内容 -->
-              <div class="chat-content">
-                <div class="chandler-content_main-board">
-                  <div class="chandler-ext-content_communication-wrap">
-                    fdsafdsa
-                    fdsafdsa
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa<br><br><br><br><br><br><br>
-                    fdsafdsa
-                  </div>
-                </div>
-                <!-- 底部输入框 -->
-                  <div class="chandler-content_input-box" >
-                    <div class="chandler-content_input-box-content">
-                      <div class="top" data-v-cbd49e0c="">
-                        <textarea v-model="this.messageData" 
-                                  class="chandler-content_input-area" 
-                                  placeholder="可以问我任何问题哦~"></textarea>
-                      </div>
-                      <div class="bottom" data-v-cbd49e0c="">
-                        <div class="left">
-                          <!-- <div class="paperclip chandler-content_input-box-icon"></div> -->
-                           <img class="paperclip" src="@/assets/img/voiceImg.jpg" @click="voiceBtn">
-                        </div>
-                        <div class="right" data-v-cbd49e0c="">
-                           <img class="send" src="@/assets/img/send.jpg" @click="sendBtn">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
+            <ChatBot/>
           </div>
 	</div>
 
 </template>
 
 <script>
+import ChatBot from '@/components/ChatBot'
 export default {
+  components:{ChatBot},
   data () {
     return {
-      messageData:''
+      messageData:'',
+      activeIndex:0
     }
   },
   methods:{
-    voiceBtn(){
-      console.log('点击了语音按钮');
-    },
-    sendBtn(){
-      console.log('点击了发送',this.messageData);
-      this.messageData = ''
-    }
   }
    
 }
@@ -76,25 +51,91 @@ export default {
 
 <style scoped>
 /* 侧边栏 */
+.content {
+    margin: 30px 0;
+    width: 100%;
+    padding: 0 8px;
+    /* max-height: calc(100vh - 254px); */
+    overflow-y: auto;
+}
+.content .module-list li span {
+    color: #120f18;
+    text-overflow: ellipsis;
+    font-family: DIYFONT;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+}
+.ml-6px {
+    margin-left: 6px;
+}
+.module-list li.active {
+    border-radius: 10px;
+    background: rgba(0,0,0,.04);
+}
+ .left-nav-wrap .content .module-list li {
+    position: relative;
+    margin-bottom: 8px;
+    padding: 6px;
+    /* display: flex; */
+    align-items: center;
+    cursor: pointer;
+}
+content .module-list {
+    height: 100%;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ml-8px {
+    margin-top: 10px;
+    margin-left: 8px;
+}
+.text-18px {
+    font-size: 16px;
+    line-height: 1;
+}
+.font-600 {
+    font-weight: 600;
+}
+.chandler-ext-content-logo-com {
+    width: 24px;
+    height: 24px;
+    background: url(@/assets/img/robot09.gif) no-repeat center;
+    background-size: contain;
+}
+.\!w-40px {
+    width: 30px!important;
+}
+.\!h-40px {
+    height: 30px!important;
+}
+.fullpage-main-nav .left-nav-wrap .top {
+    width: 100%;
+    padding: 0 8px;
+}
 .left-nav-wrap {
   
     float: left;
     position: fixed;
     margin-left: 1px;
     background: linear-gradient(240deg,rgba(255,255,255,.72) 75.63%,rgba(47, 47, 184, 0.945) 100%);
-    /* background: linear-gradient(180deg,rgba(255, 255, 255, 0.72) 75.63%,rgba(106, 103, 248, 0.72) 100%); */
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
     box-sizing: border-box;
     height: 100vh;
-    width: 130px;
+    width: 150px;
     padding: 48px 0 24px;
 }
 .\!pt-24px {
     padding-top: 24px!important;
 }
+
 /* 右边区域 */
  .right .send {
     margin-left: 8px;
@@ -122,125 +163,6 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.left {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-/* 文本框 */
-.chandler-content_input-area:focus {
-  border: 1px solid blue;
-  transition:  0.3s ease; /* 添加过渡效果 */
-  border-radius: 22px;
-}
-.top {
-    flex: 1;
-    width: 100%;
-    padding: 0 14px;
-}
-.chandler-content_input-area {
-    resize: none;
-    width: 100%;
-    padding: 12px 10px;
-    height: 11vh;
-    max-height: 100px;
-    min-height: 60px;
-    border: unset;
-    color: #413659;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    outline: none;
-    box-sizing: border-box;
-    background: transparent;
-}
-/* 中间聊天区 */
-.chandler-ext-content_communication-wrap {
-    width: 100%;
-    padding: 0 20px 30px;
-    min-height: 690px;
-    max-height: 690px;
-    overflow: auto;
-}
-.chat-com-content-wrap .chandler-content_main-board {
-    width: 100%;
-    overflow-y: auto;
-    flex: 1 1 0%;
-    overscroll-behavior: contain;
-}
-.chat-com-content-wrap .chat-content {
-    width: 100%;
-    height: calc(100% - 56px);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    user-select: text;
-}
-
-.chandler-content_input-box {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-    padding: 0 12px 12px;
-}
-.chandler-content_input-box-content {
-    width: 100%;
-    background: rgba(255,255,255,.72);
-    border-radius: 22px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    box-shadow: 0 3px rgba(112, 110, 245, 0.82) ;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.content-header {
-    width: 100%;
-    /* height: 56px; */
-    padding: 24px 0 12px 24px;
-    backdrop-filter: blur(22px);
-    border-radius: 36px 36px 0 0;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-
-    background: linear-gradient(10deg,rgba(255,255,255,.72) 75.63%,rgba(74, 71, 243, 0.72) 100%);
-    color: var(--text-color);
-    z-index: 10;
-
-}
-.chat-com-content-wrap {
-    width: 100%;
-    height: calc(100% - 46px);
-    flex: 1 1 0%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 16px auto 0px;
-    border-radius: 36px;
-    background: rgba(255, 255, 255, 0.62);
-    overflow: hidden;
-}
-.ew-resize {
-    width: 2px;
-    height: 100%;
-    background: transparent;
-    margin-right: -2px;
-    z-index: 10;
-    cursor: ew-resize;
-    float: left;
 }
 
 .flex-1 {
