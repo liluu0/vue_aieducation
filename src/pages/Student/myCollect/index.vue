@@ -27,7 +27,9 @@
           </div>
 
           <div class="chat-page-wrap w-full h-full flex-1 px-24px">
-            <ChatBot/>
+            <ChatBot v-if="activeIndex == 0" data="画图助手"/>
+            <PPT v-else-if="activeIndex == 1"/>
+            <SeeGoods v-else/>
           </div>
 	</div>
 
@@ -35,8 +37,10 @@
 
 <script>
 import ChatBot from '@/components/ChatBot'
+import PPT from '@/components/PPT'
+import SeeGoods from '@/components/SeeGoods'
 export default {
-  components:{ChatBot},
+  components:{ChatBot,PPT,SeeGoods},
   data () {
     return {
       messageData:'',

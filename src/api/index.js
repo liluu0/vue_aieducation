@@ -10,6 +10,7 @@ export const reqAddCourse = (params)=>requests({url:"/student/addCourse",method:
 
 export const reqStudentPersonal = ()=>requests({url:'/student/personalInfo',method:'get'})
 
+//上传图片
 export const reqPictureUpload = (file)=>requests({url:"/common/upload",method:"post",data:file})
 
 export const reqCourseTasks = (courseId)=>requests({url:`/course/courseTasks/${courseId}`,method:'get'})
@@ -56,3 +57,9 @@ export const reqGptAsk = (params)=>requests({url:'/gpt/ask',method:'get',params}
 
 //语音
 export const reqAudioGet = (params)=>requests({url:'/audio/get',method:'post',params})
+
+//画图 
+export const reqImageWordtoimg = (params)=>requests({url:'/image/wordtoimg',method:'post',params})
+
+//识别物品
+export const reqSeeGoods = (file)=>requests({url:"/currency/getmessage",method:"post",data:file})

@@ -2,7 +2,7 @@
   <div>
     <div class="chat-com-content-wrap">
               <div class="content-header">
-                学生智能助手
+                {{this.data?this.data:'智能陪聊助手'}}
               </div>
               <!-- 中间内容 -->
               <div class="chat-content">
@@ -10,7 +10,7 @@
                   <div class="chandler-ext-content_communication-wrap">
                      <div v-if="this.chatData.length == 0" class="chatbox">
 
-                        <div class="boctx-wrap-introduce">
+                        <div v-if="!this.data" class="boctx-wrap-introduce">
                             <div class="introduceleft">
                                 <h2 class="max-w-500px">我是你的心理陪聊助手</h2><br>
                                 <div class="desc max-w-500px">
@@ -21,16 +21,35 @@
                                         <li>我可以陪你聊天，倾听你的心声</li>
                                         <li>我可以为你解答疑惑，帮助你学习</li>
                                         <li>我可以帮你排解压力、减轻焦虑</li>
-                                        <li>快来和我聊天吧~</li>
+                                        <li class="desc max-w-500px">快来和我聊天吧~</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="introduceright">
                                 <img class="robotImg" 
-                                src="@/assets/img/robot04.gif">
+                                src="@/assets/img/robot03.gif">
                             </div>
                         </div>
-                       <!-- <img src="@/assets/img/robot04.gif" class="robotImg"> -->
+
+                        <div v-else class="boctx-wrap-introduce">
+                            <div class="introduceleft">
+                                <h2 class="max-w-500px">我是你的智能画图助手</h2><br>
+                                <div class="desc max-w-500px">
+                                    我拥有很多神奇的能力哦~<br>
+                                </div>
+                                <div class="ctrl">
+                                    <ul >
+                                        <li>我可以帮助你实现绘画创作的愿望</li>
+                                        <li>快来尽情释放你的想象力吧</li>
+                                        <li >让我们一起创造美丽的艺术作品吧！</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="introduceright">
+                                <img class="robotImg" 
+                                src="@/assets/img/robot09.gif">
+                            </div>
+                        </div>
 
                      </div>
                     <div v-else class="chatbox" ref="chatbox">
@@ -40,7 +59,8 @@
                                 <div class="chat-message user " >{{item.chatUser}}</div>
                             </div>
                             <div class="bot-message">
-                                <div class="chat-message chatbot">{{item.chatGpt}}</div>
+                                <!-- <div class="chat-message chatbot">{{item.chatGpt}}</div> -->
+                                <div class="chat-message chatbot" v-html="item.chatGpt"></div>
                             </div>
                         </li> 
                     </div>
@@ -76,10 +96,11 @@
 </template>
 
 <script>
-import {reqGptAsk,reqAudioGet} from '@/api'
+import {reqGptAsk,reqAudioGet,reqImageWordtoimg} from '@/api'
 import * as lamejs from 'lamejs';
-
+import { Message } from 'element3'
 export default {
+    props:['data'],
     data () {
         return {
             chatData:[],
@@ -149,6 +170,7 @@ export default {
 
     async sendBtn(){
         if(this.messageData == '') {
+            Message.error('消息不能为空哦~')
             return
         }
         const time = this.getCurrentTime()
@@ -162,12 +184,24 @@ export default {
         this.messageData = ''
         console.log(message);
         try {
-            const res = await reqGptAsk({question:message})
-            console.log(res.data);
-            lastItem.chatGpt = res.data.data;
+            if(!this.data){
+                const res = await reqGptAsk({question:message})
+                console.log(res.data);
+                lastItem.chatGpt = res.data.data;
+            }else {
+                const res =await reqImageWordtoimg({word:message})
+                // 解码 Base64 字符串
+                const binaryString = atob(res.data.data);
 
-        // const chatbox = this.$refs.chatbox;
-        // chatbox.scrollTop = chatbox.scrollHeight;
+                // 将二进制数据转换为图像格式
+                const imageData = 'data:image/png;base64,' + btoa(binaryString);
+                // const imageData = 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1nwXcZ.img?w=768&h=1153&m=6&x=549&y=130&s=162&d=403'
+
+                // 将图像数据存储在组件的 imageData 变量中
+                lastItem.chatGpt = `<image style='width:400px;' src='${imageData}' />`
+
+
+            }
       } catch (error) {
         console.log('reqGptAsk',error);
       }
@@ -207,7 +241,7 @@ export default {
 }
 .ctrl{
     color: #413659;
-    font-size: 14px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
@@ -242,6 +276,8 @@ export default {
 
 ul, ol, li {
       list-style-type: none;
+      margin:3px;
+      /* padding: 1px; */
   }
 .message-time {
     font-size: 12px;
