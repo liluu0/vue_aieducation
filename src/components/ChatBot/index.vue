@@ -2,7 +2,7 @@
   <div>
     <div class="chat-com-content-wrap">
               <div class="content-header">
-                {{this.data?this.data:'智能陪聊助手'}}
+                {{this.data?this.data:'画图助手'}}
               </div>
               <!-- 中间内容 -->
               <div class="chat-content">
@@ -11,6 +11,26 @@
                      <div v-if="this.chatData.length == 0" class="chatbox">
 
                         <div v-if="!this.data" class="boctx-wrap-introduce">
+                            <div class="introduceleft">
+                                <h2 class="max-w-500px">我是你的智能画图助手</h2><br>
+                                <div class="desc max-w-500px">
+                                    我拥有很多神奇的能力哦~<br>
+                                </div>
+                                <div class="ctrl">
+                                    <ul >
+                                        <li>我可以帮助你实现绘画创作的愿望</li>
+                                        <li>快来尽情释放你的想象力吧</li>
+                                        <li >让我们一起创造美丽的艺术作品吧！</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="introduceright">
+                                <img class="robotImg" 
+                                src="@/assets/img/robot09.gif">
+                            </div>
+                        </div>
+
+                        <div v-else class="boctx-wrap-introduce">
                             <div class="introduceleft">
                                 <h2 class="max-w-500px">我是你的心理陪聊助手</h2><br>
                                 <div class="desc max-w-500px">
@@ -31,27 +51,8 @@
                             </div>
                         </div>
 
-                        <div v-else class="boctx-wrap-introduce">
-                            <div class="introduceleft">
-                                <h2 class="max-w-500px">我是你的智能画图助手</h2><br>
-                                <div class="desc max-w-500px">
-                                    我拥有很多神奇的能力哦~<br>
-                                </div>
-                                <div class="ctrl">
-                                    <ul >
-                                        <li>我可以帮助你实现绘画创作的愿望</li>
-                                        <li>快来尽情释放你的想象力吧</li>
-                                        <li >让我们一起创造美丽的艺术作品吧！</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="introduceright">
-                                <img class="robotImg" 
-                                src="@/assets/img/robot09.gif">
-                            </div>
-                        </div>
-
                      </div>
+                     
                     <div v-else class="chatbox" ref="chatbox">
                         <li v-for="(item,index) in this.chatData" :key="index">
                             <div class="user-message clearfix">
@@ -212,7 +213,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .introduceleft {
     margin-left: 20px;
 }

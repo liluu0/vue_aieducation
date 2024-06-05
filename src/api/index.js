@@ -63,3 +63,9 @@ export const reqImageWordtoimg = (params)=>requests({url:'/image/wordtoimg',meth
 
 //识别物品
 export const reqSeeGoods = (file)=>requests({url:"/currency/getmessage",method:"post",data:file})
+
+//获取ppt所有模板的封面
+export const reqPptTemplateList = ()=>requests({url:'/ppt/getTempList',method:'get'})
+
+//选择类型后根据描述获取ppt
+export const reqGetPpt = (params)=>requests({url:'/ppt/getPpt',method:'post',params})

@@ -28,6 +28,13 @@ import teacherClass_discuss from '@/pages/TeacherClass/discuss'
 import teacherClass_material from '@/pages/TeacherClass/material'
 import classManage from '@/pages/TeacherClass/classManage'
 
+import ppt from '@/components/PPT'
+import chatBot from '@/components/ChatBot'
+import seeGoods from '@/components/SeeGoods'
+
+import pptModel from '@/components/PPT/pptModel'
+import pptDesc from '@/components/PPT/pptDesc'
+
 export default [
    {
       path:"/login",
@@ -51,7 +58,39 @@ export default [
         },
         {
             path:"myCollect",
-            component:myCollect
+            component:myCollect,
+            children: [
+              {
+                path: "chatBot",
+                component: chatBot,
+              },
+              {
+                path: "ppt",
+                component: ppt,
+                children: [
+                  {
+                    path: "pptModel",
+                    component: pptModel,
+                  },
+                  {
+                    path: "pptDesc",
+                    component: pptDesc,
+                  },
+                  {
+                      path:'/student/myCollect/ppt',
+                      redirect:'/student/myCollect/ppt/pptModel'
+                  }
+                ]
+              },
+              {
+                path: "seeGoods",
+                component: seeGoods,
+              },
+              {
+                  path:'/student/myCollect',
+                  redirect:'/student/myCollect/chatBot'
+              }
+            ]
         },
         {
             path:"errorSet",

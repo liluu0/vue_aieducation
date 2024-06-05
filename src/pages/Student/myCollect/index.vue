@@ -8,39 +8,39 @@
 
           <div class="content">
             <ul class="module-list">
-              <li @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }">
-                <i class="el-icon-edit"></i>
-                <span class="name ml-6px">画图</span>
-              </li>
-              <li  @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }">
-                <i class="el-icon-s-opportunity"></i>
-                <span class="name ml-6px">幻灯片</span>
-              </li>
+                <router-link to="/student/myCollect/chatBot">
+                  <li @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }">
+                      <i class="el-icon-edit"></i>
+                      <span class="name ml-6px">画图</span>
+                  </li>
+                </router-link>
+                <router-link to="/student/myCollect/ppt">
+                  <li  @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }">
+                      <i class="el-icon-s-opportunity"></i>
+                      <span class="name ml-6px">幻灯片</span>
+                  </li>
+                </router-link>
               
-              <li  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }">
-                <i class="el-icon-picture-outline"></i>
-                <span class="name ml-6px">识物</span>
-              </li>
+                <router-link to="/student/myCollect/seeGoods">
+                  <li  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }">
+                      <i class="el-icon-picture-outline"></i>
+                      <span class="name ml-6px">识物</span>
+                  </li>
+                </router-link>
             </ul>
           </div>
 
           </div>
 
           <div class="chat-page-wrap w-full h-full flex-1 px-24px">
-            <ChatBot v-if="activeIndex == 0" data="画图助手"/>
-            <PPT v-else-if="activeIndex == 1"/>
-            <SeeGoods v-else/>
+            <router-view></router-view>
           </div>
 	</div>
 
 </template>
 
 <script>
-import ChatBot from '@/components/ChatBot'
-import PPT from '@/components/PPT'
-import SeeGoods from '@/components/SeeGoods'
 export default {
-  components:{ChatBot,PPT,SeeGoods},
   data () {
     return {
       messageData:'',
@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
+a {
+   text-decoration: none;
+}
 /* 侧边栏 */
 .content {
     margin: 30px 0;

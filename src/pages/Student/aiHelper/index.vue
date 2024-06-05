@@ -63,7 +63,7 @@
           </div>
 
           <div class="F w-full h-full flex-1 px-24px">
-            <ChatBot/>
+            <ChatBot  data="智能陪聊助手"/>
           </div>
 	</div>
 
