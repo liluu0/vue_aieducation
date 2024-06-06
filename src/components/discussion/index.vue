@@ -10,7 +10,7 @@
                         clearable> </el-input>
               </div> 
               
-         <el-button @click="addClass" type="primary" plain round> + 添加讨论</el-button>
+         <el-button  @click="addDiscuss" type="primary" plain round> + 添加讨论</el-button>
       </div>
   
       <div class="alltopic clearfix">
@@ -56,8 +56,8 @@
               
     <div>
   
-      <div class="editContainer">
-          <div class="edit_headTitle">新建讨论</div> 
+      <div class="editContainer" ref="bottomElement">
+          <div class="edit_headTitle">添加讨论</div> 
           <div class="edit_main">
               <div class="edit_target">
                   <span class="fl">发布给</span> 
@@ -100,6 +100,14 @@ export default {
       this.loadAllDiscussions()
     },
     methods: {
+        addDiscuss(){
+            console.log('gund');
+            // 使用$refs来获取ref引用的元素
+            const bottomElement = this.$refs.bottomElement;
+            
+            // 滚动到底部元素
+            bottomElement.scrollIntoView({ behavior: 'smooth' });
+        },
       async loadAllDiscussions(){
         try {
           const res = await reqAllDiscussions(this.$route.params.courseId)
@@ -116,13 +124,15 @@ export default {
         if(this.discussData.title&&this.discussData.content){
           try {
             console.log('发布',this.discussData);
-            const res = await reqAddDiscussion(this.$route.params.courseId,{
-              title:'22'},
-              {content:'22'
-            })
+            const res = await reqAddDiscussion(this.$route.params.courseId,this.discussData)
             this.discussData.title = ''
             this.discussData.content = ''
-            console.log(res.data);
+            // console.log(res.data);
+            Message({
+            message: '发布成功',
+            type: 'success'
+          })
+          this.loadAllDiscussions()
           } catch (error) {
             console.log('reqAddDiscussion',error);            
           }
@@ -321,6 +331,7 @@ export default {
   }
   .breadcrumb>li.active {
       color: #8A8B99;
+      background-color: #fff;
   }
   .btn_group::after {
   content: "";

@@ -226,6 +226,7 @@ export default {
   }
   .breadcrumb>li.active {
       color: #8A8B99;
+      background-color: #fff;
   }
   .btn_group::after {
   content: "";

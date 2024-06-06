@@ -9,37 +9,35 @@
 					<div class="cleftbg_p">智能教育平台--课程中心</div>
 				</div>
 				<!-- 首页 -->
-                <router-link :to="'/class/' + $route.params.courseId+'/Class_homePage'">
-                <!-- <router-link :to="{name:'Class_homePage',params:{courseId:$route.params.courseId}}"> -->
-                    <li id="cleft_li01">
-                            <img src="./font/cnmsb01.png" />
-                            <span>课程首页</span>
-                    </li>
-                </router-link>
+					<router-link  :to="'/class/' + $route.params.courseId+'/Class_homePage'">
+                        <li @click="activeIndex = 0" :class="{ 'cleft_active': activeIndex === 0 }">
+									<img src="./font/cnmsb01.png" />
+									<span>课程首页</span>
+                        </li>
+					</router-link>
 
 				<!-- 课程任务 -->
 				<router-link :to="'/class/' + $route.params.courseId+'/task'">
 					<!-- <router-link :to="{name:'task',params:{courseId:$route.params.courseId}}"> -->
 
-                  <li id="cleft_li03"><img src="./font/cnmsb03.png" />
+                  <li  @click="activeIndex = 1" :class="{ 'cleft_active': activeIndex === 1 }">
+                         <img src="./font/cnmsb03.png" />
                          <span>课程任务</span>
                   </li>
 				</router-link>
                 <router-link :to="'/class/' + $route.params.courseId+'/class_material'">
-                    <li id="cleft_li02">
+                    <li  @click="activeIndex = 2" :class="{ 'cleft_active': activeIndex === 2 }">
                         <img src="./font/cnmsb02.png" /><span>资料</span>
                     </li>
                 </router-link>
 
-				<!-- <li id="cleft_li04"><img src="./font/cnmsb04.png" /><span>课程群聊</span></li> -->
-
 				<router-link :to="'/class/' + $route.params.courseId+'/discuss'">
-                  <li id="cleft_li05">
+                  <li  @click="activeIndex = 3" :class="{ 'cleft_active': activeIndex === 3 }">
                     <img src="./font/cnmsb05.png" /><span>讨论</span>
                   </li>
                 </router-link>
                 <router-link :to="'/class/' + $route.params.courseId+'/studyRecord'">
-                  <li id="cleft_li07">
+                  <li  @click="activeIndex = 4" :class="{ 'cleft_active': activeIndex === 4 }">
                       <img src="./font/cnmsb07.png" />
                       <span>学习记录</span>
                   </li>
@@ -63,6 +61,11 @@
 import {reqRemoveCourse} from '@/api'
 import { Msgbox, Message } from 'element3'
 export default {
+  data () {
+    return {
+        activeIndex:0
+    }
+  },
 	mounted(){
 		// console.log('class');
 		document.title = "智能教育平台--课程中心";
@@ -214,7 +217,7 @@ li{
 	height: 50px;
 	line-height: 40px;
 	text-align: left;
-	background-color: #F9F9F9;
+	/* background-color: #F9F9F9; */
 	cursor: pointer;
 }
 /* #cleft li:nth-child(1){
@@ -223,6 +226,7 @@ li{
 #cleft li:hover{
 	background-color: #efefef;
 }
+
 #cleft li:hover span{
 	color: #67737a;
 }
@@ -243,7 +247,10 @@ li{
 	color: #68747c;
 	margin-left: 12%;
 }
-
+.cleft_active {
+	/* color: #67737a; */
+	background-color: #efefef;
+}
 /*-----内容区域-右侧------*/
 #cright{
 	width: 85%;

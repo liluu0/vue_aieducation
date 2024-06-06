@@ -47,10 +47,13 @@ export const reqFileUpload = (courseId,file)=>requests({url:`/common/teacher/${c
 export const reqAllDiscussions = (courseId)=>requests({url:`/discussions/${courseId}/byCourse`,method:'get'})
 
 //添加讨论 
-export const reqAddDiscussion = (courseId,title,content)=>requests({url:`/discussions/${courseId}/add`,method:'post',title,content})
+export const reqAddDiscussion = (courseId,data)=>requests({url:`/discussions/${courseId}/add`,method:'post',data:data})
 
 //查询我的讨论
 export const reqAllMyDiscussion = (courseId)=>requests({url:`/discussions/course/${courseId}`,method:'get'})
+
+//查询学习记录
+export const reqGetRecord = (params)=>requests({url:'/record/get',method:'get',params})
 
 //gpt聊天 
 export const reqGptAsk = (params)=>requests({url:'/gpt/ask',method:'get',params})

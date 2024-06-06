@@ -6,7 +6,7 @@
                    <img class="fl" src="../image2/kfIcon.png">
                    <div class="userInfo fl" style="height: 100%;display: table;width: calc(100% - 200px);">
                        <div class="downDiv" style="vertical-align: middle; display: table-cell;" tabindex="0" role="option" aria-label="范芸;学习记录页面">
-                           <h2>范芸</h2>
+                           <h2>姓名</h2>
                            <div class="clear"></div>
                            <div class="downDiv">
                            </div>
@@ -311,9 +311,24 @@
 </template>
    
 <script>
-   export default {
-   
-   }
+import {reqGetRecord} from '@/api'
+export default {
+     mounted() {
+        this.loadRecord()
+     },
+     methods: {
+        async loadRecord(){
+            try {
+                console.log(this.$route.params.courseId);
+                const res = await reqGetRecord({courseid:this.$route.params.courseId})
+                console.log(res.data);
+            } catch (error) {
+                console.log('reqGetRecord',error);
+            }
+
+        }
+     }
+}
 </script>
    
 <style scoped>
