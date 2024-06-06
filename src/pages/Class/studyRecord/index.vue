@@ -314,7 +314,7 @@
 import {reqGetRecord} from '@/api'
 export default {
      mounted() {
-        this.loadRecord()
+        // this.loadRecord()
      },
      methods: {
         async loadRecord(){

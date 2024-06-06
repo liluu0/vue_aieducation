@@ -186,10 +186,6 @@ export default {
         console.log(message);
         try {
             if(!this.data){
-                const res = await reqGptAsk({question:message})
-                console.log(res.data);
-                lastItem.chatGpt = res.data.data;
-            }else {
                 const res =await reqImageWordtoimg({word:message})
                 // 解码 Base64 字符串
                 const binaryString = atob(res.data.data);
@@ -201,7 +197,11 @@ export default {
                 // 将图像数据存储在组件的 imageData 变量中
                 lastItem.chatGpt = `<image style='width:400px;' src='${imageData}' />`
 
-
+            }else {
+                const res = await reqGptAsk({question:message})
+                console.log(res.data);
+                lastItem.chatGpt = res.data.data;
+                
             }
       } catch (error) {
         console.log('reqGptAsk',error);
