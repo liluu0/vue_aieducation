@@ -17,8 +17,9 @@ import {  ElTabs,
     ElPopover,
     ElTable,
     ElTableColumn,
-    ElPageHeader } from 'element3'
+    ElPageHeader,} from 'element3'
 
+    import * as echarts from 'echarts';
 
 import * as API from "@/api"
 

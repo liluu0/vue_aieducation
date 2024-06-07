@@ -72,3 +72,6 @@ export const reqPptTemplateList = ()=>requests({url:'/ppt/getTempList',method:'g
 
 //选择类型后根据描述获取ppt
 export const reqGetPpt = (params)=>requests({url:'/ppt/getPpt',method:'post',params})
+
+//翻译
+export const reqTranslate = (data)=>requests({url:'/common/translate',method:'post',data:data})

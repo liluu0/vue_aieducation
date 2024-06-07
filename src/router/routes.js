@@ -6,6 +6,7 @@ import Teacher_homePage from '@/pages/Teacher/homePage'
 import studentManage from '@/pages/Teacher/studentManage'
 import teacher_aiHelper from '@/pages/Teacher/aiHelper'
 import my from '@/pages/Teacher/my'
+import teacher_workHelper from '@/pages/Teacher/workHelper'
 
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
@@ -125,6 +126,46 @@ export default [
         {
             path:"my",
             component:my
+        },
+        {
+            path:"teacher_translateCenter",
+            component:errorSet
+        },
+        {
+            path:"teacher_workHelper",
+            component:teacher_workHelper,
+            children: [
+              {
+                path: "chatBot",
+                component: chatBot,
+              },
+              {
+                path: "ppt",
+                component: ppt,
+                children: [
+                  {
+                    path: "pptModel",
+                    component: pptModel,
+                  },
+                  {
+                    path: "pptDesc",
+                    component: pptDesc,
+                  },
+                  {
+                      path:'/teacher/teacher_workHelper/ppt',
+                      redirect:'/teacher/teacher_workHelper/ppt/pptModel'
+                  }
+                ]
+              },
+              {
+                path: "seeGoods",
+                component: seeGoods,
+              },
+              {
+                  path:'/teacher/teacher_workHelper',
+                  redirect:'/teacher/teacher_workHelper/chatBot'
+              }
+            ]
         },
         {
             path:'/teacher',

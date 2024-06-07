@@ -20,7 +20,7 @@
                     <li  @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }" class="nav-link">
                         <a href="#">
                               <router-link to="/student/homePage">
-                            <i class="iconfont icon-home-4-line icon"></i>
+                            <i :class="{ 'activeText': activeIndex === 0 }" class="iconfont icon-home-4-line icon"></i>
                             <span  :class="{ 'activeText': activeIndex === 0 }" class="text nac-text">
                                 主页
                             </span>
@@ -31,7 +31,7 @@
                     <li @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/aiHelper">
-                            <i class="iconfont icon-chat-white icon"></i>
+                            <i :class="{ 'activeText': activeIndex === 1 }" class="iconfont icon-chat-white icon"></i>
                             <span :class="{ 'activeText': activeIndex === 1 }"  class="text nac-text">AI心理陪聊</span>
                             </router-link>
                         </a>
@@ -41,7 +41,7 @@
                     <li  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/myCollect">
-                                <i class="iconfont icon-wodeshoucang icon"></i>
+                                <i :class="{ 'activeText': activeIndex === 2 }" class="iconfont icon-wodeshoucang icon"></i>
                                 <span :class="{ 'activeText': activeIndex === 2 }" class="text nac-text">AI工作助手</span>
                             </router-link>
                         </a>
@@ -50,7 +50,7 @@
                     <li  @click="activeIndex = 3" :class="{ 'active': activeIndex === 3 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/errorSet">
-                                <i class="iconfont icon-shijian1 icon"></i>
+                                <i :class="{ 'activeText': activeIndex === 3 }" class="iconfont icon-shijian1 icon"></i>
                                 <span  :class="{ 'activeText': activeIndex === 3 }" class="text nac-text">翻译中心</span>
                             </router-link>
                         </a>
@@ -59,7 +59,7 @@
                     <li  @click="activeIndex = 4" :class="{ 'active': activeIndex === 4 }"  class="nav-link">
                         <a href="#">
                             <router-link to="/student/myPersonage">
-                                <i class="iconfont icon-gerenzhongxin icon"></i>
+                                <i :class="{ 'activeText': activeIndex === 4 }" class="iconfont icon-gerenzhongxin icon"></i>
                                 <span :class="{ 'activeText': activeIndex === 4 }" class="text nac-text">我的</span>
                             </router-link>
                         </a>
@@ -331,7 +331,6 @@ header {
 }
 .activeText {
     color: #fff;
-    
 }
 
 .active {

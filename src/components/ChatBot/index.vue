@@ -32,14 +32,14 @@
 
                         <div v-else class="boctx-wrap-introduce">
                             <div class="introduceleft">
-                                <h2 class="max-w-500px">我是你的心理陪聊助手</h2><br>
+                                <h2 class="max-w-500px">我是你的{{this.data}}</h2><br>
                                 <div class="desc max-w-500px">
                                     我拥有很多神奇的能力哦~<br>
                                 </div>
                                 <div class="ctrl">
                                     <ul >
-                                        <li>我可以陪你聊天，倾听你的心声</li>
-                                        <li>我可以为你解答疑惑，帮助你学习</li>
+                                        <li>我可以倾听你的心声</li>
+                                        <li>我可以为你解答疑惑</li>
                                         <li>我可以帮你排解压力、减轻焦虑</li>
                                         <li class="desc max-w-500px">快来和我聊天吧~</li>
                                     </ul>

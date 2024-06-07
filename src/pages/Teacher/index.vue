@@ -17,42 +17,59 @@
             <div class="menu">
                 <ul class="menu-links">
                     <!-- 主页 -->
-                    <li class="nav-link">
+                    <li class="nav-link"  @click="activeIndex = 0" :class="{ 'active': activeIndex === 0 }">
                         <a href="#">
                               <router-link to="/teacher/teacher_homePage">
-                            <i class="iconfont icon-home-4-line icon"></i>
-                            <span class="text nac-text">
+                            <i :class="{ 'activeText': activeIndex === 0 }" class="iconfont icon-home-4-line icon"></i>
+                            <span :class="{ 'activeText': activeIndex === 0 }" class="text nac-text">
                                 主页
                             </span>
                               </router-link>
                         </a>
                     </li>
                     <!-- 学生管理 -->
-                    <li class="nav-link">
+                    <li class="nav-link"  @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }">
                         <a href="#">
                             <router-link to="/teacher/studentManage">
-                                <i class="iconfont icon-nosearch icon"></i>
-                                <span class="text nac-text">
+                                <i :class="{ 'activeText': activeIndex === 1 }" class="iconfont icon-nosearch icon"></i>
+                                <span :class="{ 'activeText': activeIndex === 1 }" class="text nac-text">
                                     学生管理
                                 </span>
                             </router-link>
                         </a>
                     </li>
 
-                    <li class="nav-link">
+                    <li class="nav-link"  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }">
                         <a href="#">
                             <router-link to="/teacher/teacher_aiHelper">
-                                <i class="iconfont icon-chat-white icon"></i>
-                                <span class="text nac-text">智能教师助手</span>
+                                <i :class="{ 'activeText': activeIndex === 2 }" class="iconfont icon-chat-white icon"></i>
+                                <span :class="{ 'activeText': activeIndex === 2 }" class="text nac-text">AI教师助手</span>
+                            </router-link>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-link"  @click="activeIndex = 3" :class="{ 'active': activeIndex === 3 }">
+                        <a href="#">
+                            <router-link to="/teacher/teacher_workHelper">
+                                <i :class="{ 'activeText': activeIndex === 3 }" class="iconfont icon-chat-white icon"></i>
+                                <span :class="{ 'activeText': activeIndex === 3 }" class="text nac-text">AI工作助手</span>
+                            </router-link>
+                        </a>
+                    </li>
+                    <li class="nav-link"  @click="activeIndex = 4" :class="{ 'active': activeIndex === 4 }">
+                        <a href="#">
+                            <router-link to="/teacher/teacher_translateCenter">
+                                <i :class="{ 'activeText': activeIndex === 4 }" class="iconfont icon-chat-white icon"></i>
+                                <span :class="{ 'activeText': activeIndex === 4 }" class="text nac-text">翻译中心</span>
                             </router-link>
                         </a>
                     </li>
                     <!-- 我的 -->
-                    <li class="nav-link">
+                    <li class="nav-link"  @click="activeIndex = 5" :class="{ 'active': activeIndex === 5 }">
                         <a href="#">
                             <router-link to="/teacher/my">
-                                <i class="iconfont icon-gerenzhongxin icon"></i>
-                                <span class="text nac-text">我的</span>
+                                <i :class="{ 'activeText': activeIndex === 5 }" class="iconfont icon-gerenzhongxin icon"></i>
+                                <span :class="{ 'activeText': activeIndex === 5 }" class="text nac-text">我的</span>
                             </router-link>
                         </a>
                     </li>
@@ -92,6 +109,11 @@
 <script >
 
 export default {
+  data () {
+    return {
+        activeIndex:0
+    }
+  },
   mounted(){
     const body = document.querySelector('body'),
         modeSwitch = body.querySelector(".toggle-switch"),
@@ -156,9 +178,7 @@ body {
     --toggle-color: #fff;
     --text-color: #ccc;
 }
-/* .student {
-    display: flex;
-} */
+
 .leftdiv {
   float: left;
   /* width: 12vw; */
@@ -405,5 +425,12 @@ header {
 
 .dark .switch::before {
     left: 20px;
+}
+.activeText {
+    color: #fff;
+}
+.active {
+    background-color: var(--primary-color);
+    border-radius: 6px;
 }
 </style>

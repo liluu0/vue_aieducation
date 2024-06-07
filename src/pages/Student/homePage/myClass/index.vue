@@ -51,9 +51,6 @@ export default {
 
       return { input }
     },
-    mounted(){
-        console.log(this.courseAll);
-    },
     methods:{
         addClass(){
             Msgbox
