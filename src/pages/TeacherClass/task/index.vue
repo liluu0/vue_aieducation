@@ -2,7 +2,7 @@
     <div id="nav07">
 <div class="bgc">
 <el-tabs v-model="activeName">
-<el-tab-pane label="全部任务" name="first">
+<el-tab-pane label="批阅任务" name="first">
   <allTask/>
 </el-tab-pane>
 <el-tab-pane label="发布任务" name="second">

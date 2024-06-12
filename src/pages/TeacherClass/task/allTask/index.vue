@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import {reqCourseTasks} from '@/api'
 import Task from '@/components/Task'
 export default {
@@ -22,7 +21,8 @@ export default {
   },
     data () {
         return {
-            taskAll:[]
+            taskAll:[],
+            input:''
         }
     },
     mounted() {

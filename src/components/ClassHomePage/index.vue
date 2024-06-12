@@ -12,6 +12,7 @@
                                 <p><span>课 程 介 绍：</span>{{this.course.courseIntroduce}}</p>
                                 <p><span>课 程 要 求：</span>{{this.course.courseDemand}}</p>
                                 <p><span>课 程 目 标：</span>{{this.course.courseTarget}}</p> 
+                                <p><span>邀 请 码 ：</span>{{this.course.invitationCode}}</p> 
                               </div>
                           </div>
                           <!-- 教师介绍 -->
@@ -26,12 +27,12 @@
                           <!-- 智能课程评价 -->
                           <div class="nav02_kj">
                               <h3>😁课程评价和学习建议</h3>
-                              <AiContent/>
+                              <AiContent :question='this.questionData'/>
                           </div>
                       </div>
                   </div>
 </template>
-  
+
 <script>
 import {reqCourseHomepage} from '@/api'
 import AiContent from '@/components/AiContent'
@@ -39,7 +40,8 @@ export default {
     data () {
         return {
             course:{},
-            teacher:{}
+            teacher:{},
+            questionData:''
         }
     },
     components:{
@@ -48,8 +50,9 @@ export default {
     async mounted() {
         try {
             const res = await reqCourseHomepage(this.$route.params.courseId)
-            console.log(res.data);
             this.course = res.data.data.course
+            this.questionData = `请给我关于${this.course.name}课程的课程评价和学习建议，分点简单讲解`
+            console.log(this.questionData);
             this.teacher = res.data.data.teacher
             this.$refs.nav_bg.style.backgroundImage = `url(${this.course.courseImage})`;
         } catch (error) {

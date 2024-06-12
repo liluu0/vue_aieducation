@@ -130,18 +130,6 @@ li{
 #pc {
     display: block; /* 或 display: inline; */
 }
-#ebga{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 0%;
-	height: 0%;
-	background-color: rgba(40,40,40,0.3);
-}
-
 /*-----内容区域------*/
 #content{
 	position: fixed;
@@ -217,7 +205,7 @@ li{
 	height: 50px;
 	line-height: 40px;
 	text-align: left;
-	/* background-color: #F9F9F9; */
+	background-color: #F9F9F9;
 	cursor: pointer;
 }
 /* #cleft li:nth-child(1){
@@ -225,13 +213,6 @@ li{
 } */
 #cleft li:hover{
 	background-color: #efefef;
-}
-
-#cleft li:hover span{
-	color: #67737a;
-}
-#cleft li:hover img{
-	transform: scale(1.1);
 }
 #cleft li img{
 	float: left;
@@ -249,7 +230,7 @@ li{
 }
 .cleft_active {
 	/* color: #67737a; */
-	background-color: #efefef;
+	background-color: #efefef!important;
 }
 /*-----内容区域-右侧------*/
 #cright{

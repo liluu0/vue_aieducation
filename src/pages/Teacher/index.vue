@@ -28,17 +28,6 @@
                         </a>
                     </li>
                     <!-- 学生管理 -->
-                    <li class="nav-link"  @click="activeIndex = 1" :class="{ 'active': activeIndex === 1 }">
-                        <a href="#">
-                            <router-link to="/teacher/studentManage">
-                                <i :class="{ 'activeText': activeIndex === 1 }" class="iconfont icon-nosearch icon"></i>
-                                <span :class="{ 'activeText': activeIndex === 1 }" class="text nac-text">
-                                    学生管理
-                                </span>
-                            </router-link>
-                        </a>
-                    </li>
-
                     <li class="nav-link"  @click="activeIndex = 2" :class="{ 'active': activeIndex === 2 }">
                         <a href="#">
                             <router-link to="/teacher/teacher_aiHelper">

@@ -17,7 +17,8 @@ import {  ElTabs,
     ElPopover,
     ElTable,
     ElTableColumn,
-    ElPageHeader,} from 'element3'
+    ElPageHeader,
+    ElDialog} from 'element3'
 
     import * as echarts from 'echarts';
 
@@ -30,7 +31,7 @@ app.use(setupGlobalOptions({ size: 'small', zIndex: 3000 }));
 app.use(ElTabs);
 app.use(ElTabPane).use(ElButton).use(ElInput)
 app.use(ElSelect).use(ElOption).use(ElImage).use(ElForm).use(ElFormItem).use(ElPopover)
-app.use(ElTable).use(ElTableColumn).use(ElPageHeader)
+app.use(ElTable).use(ElTableColumn).use(ElPageHeader).use(ElDialog)
 // 添加全局属性
 app.config.globalProperties.$API = API;
 

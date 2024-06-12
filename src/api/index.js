@@ -75,3 +75,12 @@ export const reqGetPpt = (params)=>requests({url:'/ppt/getPpt',method:'post',par
 
 //翻译
 export const reqTranslate = (data)=>requests({url:'/common/translate',method:'post',data:data})
+
+//任务初次创建 /teacher/addTask
+export const reqAddTask = (data) =>requests({url:'/teacher/addTask',method:'post',data:data})
+
+//老师在任务中添加题目
+export const reqAddTopics = (data)=>requests({url:'/teacher/addTopics',method:'post',data:data})
+
+//查询课程中所有学生
+export const reqAllStudent = (courseId)=>requests({url:`/teacher/displayStudent/${courseId}`,method:'get'})

@@ -3,10 +3,11 @@ import CreateClass from '@/components/CreateClass'
 
 import Teacher from '@/pages/Teacher'
 import Teacher_homePage from '@/pages/Teacher/homePage'
-import studentManage from '@/pages/Teacher/studentManage'
 import teacher_aiHelper from '@/pages/Teacher/aiHelper'
 import my from '@/pages/Teacher/my'
 import teacher_workHelper from '@/pages/Teacher/workHelper'
+
+import TeacherTaskSet from '@/components/TeacherTaskSet'
 
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
@@ -38,14 +39,22 @@ import pptDesc from '@/components/PPT/pptDesc'
 
 export default [
    {
+      name:"Login",
       path:"/login",
       component:Login,
   },
   {
+     name:'createClass',
      path:"/createClass",
      component:CreateClass,
   },
   {
+     name:'teacherTaskSet',
+     path:"/teacherTaskSet",
+     component:TeacherTaskSet,
+  },
+  {
+    name:'student',
     path:"/student",
     component:Student,
     children:[
@@ -114,10 +123,6 @@ export default [
         {
             path:"teacher_homePage",
             component:Teacher_homePage
-        },
-        {
-            path:"studentManage",
-            component:studentManage
         },
         {
             path:"teacher_aiHelper",
@@ -232,23 +237,26 @@ export default [
           props:true,
         },
         {
+          name:'teacherClass_discuss',
           path: "teacherClass_discuss",
           component: teacherClass_discuss,
           props:true,
         },
         {
+          name:'teacherClass_material',
           path: "teacherClass_material",
           component: teacherClass_material,
           meta:{isTeacher:true},
           props:true,
         },
         {
+          name:'classManage',
           path: "classManage",
           component: classManage,
           props:true,
         },
         {
-          path: '',
+          path: '/',
           redirect: '/teacherClass/:courseId/teacherClass_homePage'
         }
     ]

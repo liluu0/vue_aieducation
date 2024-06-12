@@ -10,8 +10,7 @@
       </div>
       <!-- 首页 -->
               <router-link :to="'/teacherClass/' + $route.params.courseId+'/teacherClass_homePage'">
-              <!-- <router-link :to="{name:'Class_homePage',params:{courseId:$route.params.courseId}}"> -->
-                  <li id="cleft_li01">
+                  <li @click="activeIndex = 0" :class="{ 'cleft_active': activeIndex === 0 }">
                           <img src="./font/cnmsb01.png" />
                           <span>课程首页</span>
                   </li>
@@ -19,27 +18,24 @@
 
       <!-- 课程任务 -->
       <router-link :to="'/teacherClass/' + $route.params.courseId+'/teacherClass_task'">
-        <!-- <router-link :to="{name:'task',params:{courseId:$route.params.courseId}}"> -->
-
-                <li id="cleft_li03"><img src="./font/cnmsb03.png" />
+                <li  @click="activeIndex = 1" :class="{ 'cleft_active': activeIndex === 1 }" id="cleft_li03">
+                  <img src="./font/cnmsb03.png" />
                        <span>课程任务</span>
                 </li>
       </router-link>
               <router-link :to="'/teacherClass/' + $route.params.courseId+'/teacherClass_material'">
-                  <li id="cleft_li02">
+                  <li @click="activeIndex = 2" :class="{ 'cleft_active': activeIndex === 2 }" id="cleft_li02">
                       <img src="./font/cnmsb02.png" /><span>资料</span>
                   </li>
               </router-link>
 
-      <!-- <li id="cleft_li04"><img src="./font/cnmsb04.png" /><span>课程群聊</span></li> -->
-
       <router-link :to="'/teacherClass/' + $route.params.courseId+'/teacherClass_discuss'">
-                <li id="cleft_li05">
+                <li @click="activeIndex = 3" :class="{ 'cleft_active': activeIndex === 3 }">
                   <img src="./font/cnmsb05.png" /><span>讨论</span>
                 </li>
               </router-link>
               <router-link :to="'/teacherClass/' + $route.params.courseId+'/classManage'">
-                <li id="cleft_li07">
+                <li @click="activeIndex = 4" :class="{ 'cleft_active': activeIndex === 4 }">
                     <img src="./font/cnmsb07.png" />
                     <span>课程管理</span>
                 </li>
@@ -60,6 +56,11 @@
 
 <script>
 export default {
+    data () {
+    return {
+        activeIndex:0
+    }
+  },
 mounted(){
   document.title = "智能教育平台--课程中心";
 }
@@ -78,18 +79,6 @@ list-style: none;
 #pc {
   display: block; /* 或 display: inline; */
 }
-#ebga{
-position: fixed;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-width: 0%;
-height: 0%;
-background-color: rgba(40,40,40,0.3);
-}
-
 /*-----内容区域------*/
 #content{
 position: fixed;
@@ -153,18 +142,10 @@ text-align: left;
 background-color: #F9F9F9;
 cursor: pointer;
 }
-/* #cleft li:nth-child(1){
-background-color: #ececec;
-} */
 #cleft li:hover{
 background-color: #efefef;
 }
-#cleft li:hover span{
-color: #67737a;
-}
-#cleft li:hover img{
-transform: scale(1.1);
-}
+
 #cleft li img{
 float: left;
 width: 20px;
@@ -189,6 +170,8 @@ box-sizing: border-box;
 transition: 0.5s;
 position: relative;
 }
-/*-----Nav01-首页-内容区域-右侧------*/
 
+.cleft_active {
+	background-color: #efefef!important;
+}
 </style>

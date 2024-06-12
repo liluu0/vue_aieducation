@@ -15,15 +15,15 @@
                 <div class="ball"></div>
             </div>
         </div>
-        <!-- <p>
-            本人学识渊博，经验丰富，代码风骚，效率恐怖。C/C＋＋，java，php无不精通，熟练掌握各种框架。
-        </p> -->
-
     </div>
 </template>
 
 <script>
 export default {
+    props:['question'],
+    mounted() {
+        console.log(this.question);
+    },
 
 }
 </script>

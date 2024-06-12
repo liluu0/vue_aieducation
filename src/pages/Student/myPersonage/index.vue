@@ -111,8 +111,7 @@ import {reqStudentPersonal,reqPictureUpload,reqStudentPersonalUpdate} from '@/ap
     data () {
       return {
         personalVirtual:{},
-        personal:{},
-        isBlur:0
+        personal:{}
       }
     },
     async mounted(){
