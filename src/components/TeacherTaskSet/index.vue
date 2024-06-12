@@ -64,9 +64,12 @@
 </template>
   
 <script>
+import { Message } from 'element3'
+import {reqAddTopics} from '@/api'
 export default {
   data () {
         return {
+            taskId:'',
             querstionType:{
                 select:'0',
                 judge:'0',
@@ -93,11 +96,65 @@ export default {
     },
     mounted() {
         this.querstionType = JSON.parse(this.$route.query.querstionType);
+        this.taskId = this.$route.query.taskId
     },
     methods:{
       async createBtn(){
-            // this.$router.go(-1);
+            // {
+            //     "questionType": "选择题",
+            //     "questionText": "下列哪项不是编程语言？",
+            //     "options1": "Java",
+            //     "options2": "Python",
+            //     "options3": "HTML",
+            //     "options4": "CSS",
+            //     "correctAnswer": "HTML",
+            //     "fullscore": 10
+            // },
             console.log(this.selectAnswer,this.judgeAnswer,this.useAnswer);
+            let topics = []
+            for (let index = 0; index < this.selectAnswer.querstion.length; index++) {
+              let selectElement = {questionType: "选择题",fullscore:this.selectAnswer.fullscore}
+              selectElement.questionText = this.selectAnswer.querstion[index]
+              selectElement.options1 = this.selectAnswer.A[index]
+              selectElement.options2 = this.selectAnswer.B[index]
+              selectElement.options3 = this.selectAnswer.C[index]
+              selectElement.options4 = this.selectAnswer.D[index]
+              selectElement.correctAnswer = this.selectAnswer.correctAnswer[index]
+              topics.push(selectElement)
+            }
+            for (let index = 0; index < this.judgeAnswer.querstion.length; index++) {
+              let Element = {questionType: "判断题",
+              fullscore:this.judgeAnswer.fullscore,
+              options1:'正确',options2:'错误'}
+              Element.questionText = this.judgeAnswer.querstion[index]
+              Element.correctAnswer = this.judgeAnswer.correctAnswer[index]
+              topics.push(Element)
+            }
+            for (let index = 0; index < this.useAnswer.querstion.length; index++) {
+              let Element = {questionType: "应用题",
+              fullscore:this.useAnswer.fullscore}
+              Element.questionText = this.useAnswer.querstion[index]
+              Element.correctAnswer = this.useAnswer.correctAnswer[index]
+              topics.push(Element)
+            }
+            console.log(this.taskId,topics);
+            try {
+              const res = await reqAddTopics({
+                 taskId: this.taskId,
+                 topics: topics
+              })
+              console.log(res);
+              if(res.data.code == 200){
+                Message({
+                  message: '任务创建成功',
+                  type: 'success'
+                })
+                this.$router.go(-1);
+                console.log('跳转');
+              }
+            } catch (error) {
+              console.log('reqAddTopics',error);
+            }
       }
     },
     computed: {

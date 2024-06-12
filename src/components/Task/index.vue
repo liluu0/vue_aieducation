@@ -120,6 +120,7 @@ ul, ol, li {
     padding-left: 30px;
     cursor: pointer;
     transition: transform 0.3s; /* 添加过渡效果 */
+    height: 70px;
 }
 .bottomList ul li:hover{
     background-color: var(--body-color);

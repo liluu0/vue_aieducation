@@ -89,12 +89,14 @@ export default {
             taskContent: "",
             deadline: this.form.time
       })
-      console.log(res);
-      const jsonString = JSON.stringify(this.form.querstionType);
-      this.$router.push({
-        path: '/teacherTaskSet',
-        query: { querstionType:jsonString,taskId:res.data.data.taskId }
-      });
+      // console.log(res);
+      if(res.data.code == 200){
+        const jsonString = JSON.stringify(this.form.querstionType);
+        this.$router.push({
+          path: '/teacherTaskSet',
+          query: { querstionType:jsonString,taskId:res.data.data.taskId }
+        });
+      }
     }
   },
 
