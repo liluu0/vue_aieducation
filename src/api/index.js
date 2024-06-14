@@ -84,3 +84,9 @@ export const reqAddTopics = (data)=>requests({url:'/teacher/addTopics',method:'p
 
 //查询课程中所有学生
 export const reqAllStudent = (courseId)=>requests({url:`/teacher/displayStudent/${courseId}`,method:'get'})
+
+//学生查看任务题目
+export const reqStudentGetTopic = (params)=>requests({url:'/student/getTopic',method:'get',params})
+
+//学生提交任务
+export const reqSubmitTask = (data)=>requests({url:'/student/submitTask',method:'post',data:data})

@@ -52,11 +52,15 @@ export default {
     methods: {
         changeStatus(changeNum){
             console.log(changeNum);
-
         },
         goTask(taskId){
             console.log(taskId);
+            
+            // 构建跳转的完整路径
+            let url = '/classTaskDetail/' + taskId;
 
+            // 在新窗口中打开链接
+            window.open(url, '_blank');
         }
     },
 

@@ -100,16 +100,6 @@ export default {
     },
     methods:{
       async createBtn(){
-            // {
-            //     "questionType": "选择题",
-            //     "questionText": "下列哪项不是编程语言？",
-            //     "options1": "Java",
-            //     "options2": "Python",
-            //     "options3": "HTML",
-            //     "options4": "CSS",
-            //     "correctAnswer": "HTML",
-            //     "fullscore": 10
-            // },
             console.log(this.selectAnswer,this.judgeAnswer,this.useAnswer);
             let topics = []
             for (let index = 0; index < this.selectAnswer.querstion.length; index++) {

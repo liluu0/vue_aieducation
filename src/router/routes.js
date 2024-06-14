@@ -8,6 +8,7 @@ import my from '@/pages/Teacher/my'
 import teacher_workHelper from '@/pages/Teacher/workHelper'
 
 import TeacherTaskSet from '@/components/TeacherTaskSet'
+import ClassTaskDetail from '@/components/ClassTaskDetail'
 
 import Student from '@/pages/Student'
 import homePage from '@/pages/Student/homePage'
@@ -47,6 +48,12 @@ export default [
      name:'createClass',
      path:"/createClass",
      component:CreateClass,
+  },
+  {
+     name:'classTaskDetail',
+     path:"/classTaskDetail/:taskId",
+     props:true,
+     component:ClassTaskDetail,
   },
   {
      name:'teacherTaskSet',
@@ -256,7 +263,7 @@ export default [
           props:true,
         },
         {
-          path: '/',
+          path: '',
           redirect: '/teacherClass/:courseId/teacherClass_homePage'
         }
     ]
