@@ -1,6 +1,6 @@
 <template>
     <div class="task">
-        <div class="filter">
+        <div v-if="this.isTeacher!=1" class="filter">
                             <span class="title">筛选</span>
                             <span class="ipt-radio circl-choosed">
                                 <input name="group-radio" type="radio" @click="changeStatus(0);" checked="checked" tabindex="-1"><i class="icon-radio"></i>
@@ -33,8 +33,11 @@
                                 <div class="right-content">
                                     <p class="overHidden2 fl">{{value.taskName}}</p>
                                     <div class="clear"></div>
-                                    <p class="status fl">
+                                    <p class="status fl" v-if="this.isTeacher!=1">
                                         {{value.status==0?'待批阅':value.status==1?'已批阅':'未完成'}}
+                                    </p>
+                                    <p class="status fl" v-else>
+                                        本期作业
                                     </p>
                                     <div class="clear"></div>
                                 </div>
@@ -48,7 +51,10 @@
 
 <script>
 export default {
-  props: ['taskAll'],
+  props: ['taskAll','isTeacher'],
+  mounted() {
+    console.log(this.isTeacher);
+  },
     methods: {
         changeStatus(changeNum){
             console.log(changeNum);

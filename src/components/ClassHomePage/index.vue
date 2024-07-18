@@ -22,11 +22,11 @@
                                 <p><span>教 师 性 别：</span>{{this.teacher.sex=='0'?'女':'男'}}</p>
                                 <p><span>教 师 手 机 号：</span>{{this.teacher.phone}}</p>
                                 <p><span>教 师 职 位：</span>{{this.teacher.position}}</p> 
-                                <p><span>教 师 简 介：</span>{{this.teacher.detail}}</p> 
+                                <p><span>教 师 简 介：</span>{{this.teacher.introduction}}</p> 
                           </div>
                           <!-- 智能课程评价 -->
                           <div class="nav02_kj">
-                              <h3>😁课程评价和学习建议</h3>
+                              <h3>🧡课程评价和学习建议</h3>
                               <AiContent :question='this.questionData'/>
                           </div>
                       </div>
@@ -51,8 +51,7 @@ export default {
         try {
             const res = await reqCourseHomepage(this.$route.params.courseId)
             this.course = res.data.data.course
-            this.questionData = `请给我关于${this.course.name}课程的课程评价和学习建议，分点简单讲解`
-            console.log(this.questionData);
+            this.questionData = `给我关于${this.course.courseName}课程的课程评价和学习建议，分点简单讲解,不要语气词，注意换行`
             this.teacher = res.data.data.teacher
             this.$refs.nav_bg.style.backgroundImage = `url(${this.course.courseImage})`;
         } catch (error) {

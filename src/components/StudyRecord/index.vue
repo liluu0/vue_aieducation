@@ -79,9 +79,9 @@
                <div class="model classStudyNum">
                    <div class="title">
                            <h2 class="fl" tabindex="0" role="option">课程学习次数</h2>
-
                        <div class="clearfix"></div>
                    </div>
+                            <div id="mainNum"></div>
                    <div class="clearfix"></div>
                </div>
                <div class="clearfix"></div>
@@ -137,8 +137,37 @@ export default {
             
             // 使用配置项绘制图表
             myChart.setOption(option);
+            this.loadStudentNum()
      },
      methods: {
+        loadStudentNum(){
+            var myChart = echarts.init(document.getElementById('mainNum'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '连续七天学习课程次数折线图'
+        },
+        tooltip: {},
+        legend: {
+          data: ['次数']
+        },
+        xAxis: {
+          data: ['7-10', '7-11', '7-12', '7-13', '7-14', '7-15']
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '次数',
+            type: 'bar',
+            data: [5, 20, 26, 10, 10, 20]
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+        },
         async loadRecord(){
             try {
                 const res = await reqGetRecord({courseid:this.courseId})
@@ -169,6 +198,14 @@ export default {
      margin-top:-30px;
      float: right;
      margin-right: -20px;
+}
+#mainNum {
+    margin: 0 auto;
+     width: 90%;
+     height:450px;
+     margin-top:20px;
+     /* background-color: red; */
+     /* margin-right: -20px; */
 }
 .homeworkFinish {
     margin: 20px 0 0 -20px;
@@ -299,6 +336,6 @@ h2 span {
 }
 .classStudyNum {
     width: 100%;
-    min-height: 450px;
+    min-height: 500px;
 }
 </style>

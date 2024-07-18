@@ -7,7 +7,7 @@
 
               <div  class="block">
                  <label  class="icon icon-xiangji1 iconfont"></label>
-                <el-image @click="changeImage"  :src="this.personal.teacherImage">
+                <el-image style="width:200px" @click="changeImage"  :src="this.personal.teacherImage">
                   <template #placeholder>
                     <div class="image-slot">加载中<span class="dot">...</span></div>
                   </template>
@@ -56,13 +56,10 @@
         
     <div class="Massage minHeight">
       <div class="nav02_kj">
-            <h3>😁推/荐/计/划</h3>
+            <h3>🧡智/能/推/荐</h3>
             <div class="education_txt">
-							<p><span>手机号：</span>
-              <el-input 
-              type="text" 
-              v-model="this.personalVirtual.phone"
-              @blur="handleBlur('phone')"/>
+							<p><span>推荐教学:</span>
+                {{this.aiMge}}
               </p>
 							
 						</div>
@@ -75,13 +72,14 @@
 
 <script>
 import { Message } from 'element3'
-import {reqTeacherPersonal,reqPictureUpload,reqTeacherPersonalUpdate} from '@/api'
+import {reqGptAsk,reqTeacherPersonal,reqPictureUpload,reqTeacherPersonalUpdate} from '@/api'
   export default {
     data () {
       return {
         personalVirtual:{},
         personal:{},
-        isBlur:0
+        isBlur:0,
+        aiMge:'正在推荐中……'
       }
     },
     async mounted(){
@@ -95,9 +93,21 @@ import {reqTeacherPersonal,reqPictureUpload,reqTeacherPersonalUpdate} from '@/ap
       } catch (error) {
         console.log('reqTeacherPersonal',error);
       }
-
+      this.loadAImge()
+      
     },
     methods:{
+      async loadAImge(){
+        let message = '适合所有教学职位';
+        if(this.personal){
+          message = this.personal.position
+          console.log(message);
+        }
+        const res = await reqGptAsk({question:"身份是老师，职位是"+message+",写出推荐教学计划，不多于500字。"})
+                console.log(res);
+                this.aiMge = res.data.data
+
+      },
       handleSex(value){
         // console.log(value);
         this.personalVirtual.sex = value

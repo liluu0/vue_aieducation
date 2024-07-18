@@ -8,7 +8,7 @@
                                 clearable> </el-input>
                     </div> 
                 </div>
-                <Task :taskAll="this.taskAll"/>
+                <Task :taskAll="this.taskAll" isTeacher="1"/>
   </div>
 </template>
 

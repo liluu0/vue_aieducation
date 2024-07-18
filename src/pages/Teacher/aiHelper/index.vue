@@ -7,53 +7,61 @@
                 </h3>
                 <div class="history-box-list" infinite-scroll-disabled="true" infinite-scroll-delay="800" infinite-scroll-distance="200" style="overflow-y: auto;">
                   <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-20</p>
+                    <p class="history-box-list-time">2024-07-15</p>
                     <div class="history-box-list-it">
                       <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">学习概率论的技巧</span>
+                        <span class="flex-1 history-box-list-it-title">检测学生成果的方法</span>
                       </div>
                     </div>
                   </div>
                   <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-18</p>
+                    <p class="history-box-list-time">2024-07-14</p>
                     <div class="history-box-list-it">
                       <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">如何通过英语四六级</span>
+                        <span class="flex-1 history-box-list-it-title">学习高数的技巧</span>
                       </div>
                     </div>
                   </div>
                   <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-17</p>
+                    <p class="history-box-list-time">2024-07-03</p>
                     <div class="history-box-list-it">
                       <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">高数</span>
+                        <span class="flex-1 history-box-list-it-title">英语四六级的考点</span>
                       </div>
                     </div>
                   </div>
-                  
                   <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-15</p>
+                    <p class="history-box-list-time">2024-07-02</p>
                     <div class="history-box-list-it">
                       <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">red是什么意思</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-10</p>
-                    <div class="history-box-list-it">
-                      <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">如何做到开心每一天</span>
+                        <span class="flex-1 history-box-list-it-title">高数教学</span>
                       </div>
                     </div>
                   </div>
                   
                   <div class="history-box-list-group">
-                    <p class="history-box-list-time">2024-05-07</p>
+                    <p class="history-box-list-time">2024-06-24</p>
                     <div class="history-box-list-it">
                       <div class="flex items-center justify-between">
-                        <span class="flex-1 history-box-list-it-title">您好呀</span>
+                        <span class="flex-1 history-box-list-it-title">如何形容阴雨天</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="history-box-list-group">
+                    <p class="history-box-list-time">2024-06-19</p>
+                    <div class="history-box-list-it">
+                      <div class="flex items-center justify-between">
+                        <span class="flex-1 history-box-list-it-title">如何做到心如止水</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="history-box-list-group">
+                    <p class="history-box-list-time">2024-06-07</p>
+                    <div class="history-box-list-it">
+                      <div class="flex items-center justify-between">
+                        <span class="flex-1 history-box-list-it-title">如何更好的教学</span>
                       </div>
                     </div>
                   </div>

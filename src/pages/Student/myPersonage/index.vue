@@ -76,43 +76,32 @@
     <!-- 背景margin -->
     <div class="bgmargin">
     </div>
+  
         
     <div class="Massage minHeight">
       <div class="nav02_kj">
-            <h3>😁情/况/汇/总</h3>
+            <h3>🧡推/荐/计/划</h3>
             <div class="education_txt">
-							<p><span>学校：</span>{{this.personal.schoolName}}</p>
-							<p><span>学历：</span>{{this.personal.educationalBackground}}</p>
+              <AiContent :question='this.questionData'/>
 						</div>
 					</div>
     </div>
-    <!-- 背景margin -->
-    <div class="bgmargin">
-    </div>
-        
-    <div class="Massage minHeight">
-      <div class="nav02_kj">
-            <h3>😁推/荐/计/划</h3>
-            <div class="education_txt">
-							<p><span>学校：</span>{{this.personal.schoolName}}</p>
-							<p><span>学历：</span>{{this.personal.educationalBackground}}</p>
-						</div>
-					</div>
-    </div>
-
-
 </div>
 </template>
 
 <script>
 import { Message } from 'element3'
 import {reqStudentPersonal,reqPictureUpload,reqStudentPersonalUpdate} from '@/api'
-  export default {
+import AiContent from '@/components/AiContent'
+export default {
     data () {
       return {
         personalVirtual:{},
         personal:{}
       }
+    },
+    components:{
+        AiContent
     },
     async mounted(){
       try {
@@ -122,8 +111,11 @@ import {reqStudentPersonal,reqPictureUpload,reqStudentPersonalUpdate} from '@/ap
         if(!this.personal.studentImage){
           this.personal.studentImage = 'https://img2.baidu.com/it/u=3022488819,1069187648&fm=253&app=138&size=w931&n=0&f=JPG&fmt=auto?sec=1716224400&t=6241caa48928abb8b17b659189b937bc'
         }
+        
         // this.personalVirtual = this.personal
         this.personalVirtual = JSON.parse(JSON.stringify(this.personal)); // 深拷贝对象
+        this.questionData = `给我关于${this.personalVirtual.educationalBackground}的推荐计划，分点简单讲解,不要语气词，注意换行`
+            
       } catch (error) {
         console.log('reqStudentPersonal',error);
       }
@@ -226,7 +218,7 @@ import {reqStudentPersonal,reqPictureUpload,reqStudentPersonalUpdate} from '@/ap
     width: 400px;
 }
 .Massage {
-  padding: 0 0 30px 30px;
+    padding: 0 30px 30px 30px;
 }
 .nav02_kj{
 	width: 100%;

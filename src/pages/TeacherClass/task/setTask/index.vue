@@ -44,7 +44,9 @@
                       </template>
                     </el-dialog>
                 </div>
-
+                   <div class="not-data color181E33">
+                暂无暂存任务哦~
+            </div>
   </div>
 </template>
 
@@ -104,6 +106,15 @@ export default {
 </script>
 
 <style scoped>
+ .not-data{
+    width: 100%;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .dialogBody {
     padding:10px 0 0;
 }

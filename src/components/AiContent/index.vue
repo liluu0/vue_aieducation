@@ -1,28 +1,32 @@
 <template>
     <div class="AiContent">
-        <div class="shell">
-            <div class="box">
-                <div class="ball"></div>
-                <div class="shadow"></div>
-            </div>
-
-            <div class="box">
-                <div class="ball"></div>
-                <div class="shadow"></div>
-            </div>
-
-            <div class="box">
-                <div class="ball"></div>
-            </div>
-        </div>
+        {{this.message}}
     </div>
 </template>
 
 <script>
+import {reqGptAsk} from '@/api'
 export default {
     props:['question'],
-    mounted() {
+    data () {
+        return {
+            message:'正在生成中，请稍后……'
+        }
+    },
+    async mounted() {
         console.log(this.question);
+        try {
+            let question = this.question
+            if(!question){
+                question = '给我关于ai课程的课程评价和学习建议，分点简单讲解'
+                }
+                const res = await reqGptAsk({question:question+",不多于500字。"})
+                console.log(res);
+                this.message = res.data.data
+        } catch (error) {
+            console.log('reqGptAsk',error);
+        }
+
     },
 
 }
@@ -42,7 +46,11 @@ export default {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 200px;
+            padding: 20px;
+            border-radius: 30PX;
+            line-height: 1.5; /* 设置行高为1.5倍的字体大小 */
+  letter-spacing: 2px; /* 设置文字间的距离为2像素 */
             overflow: hidden; 
 }
 .AiContent.box {
