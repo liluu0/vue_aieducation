@@ -1,4 +1,5 @@
 一.教师端口：
+
 1.课程创建与管理创新：
 简化课程创建流程：在主页，教师可以通过直观的界面快速创建和管理课程，并查看详细的课程信息，确保教学组织的高效性。
 智能任务分配：系统自动分析学生的学习进度和表现，智能推推荐学习计划 教学计划 、课程评价和学习建议，提高教学效果。
@@ -14,6 +15,7 @@
 老师布置完任务后，学生点击完成后会自动进行批阅、自动评分并且分析出智能评语，老师可以查看批阅情况和修改批阅。
 
 二.学生端口：
+
 1.个性化学习路径设计：
 任务模块的多样化：在任务模块中，学生可以点击老师布置的任务进行完成，任务类型包括选择题、填空题、应用题等，模拟真实考试场景，提升学习效果。
 智能推荐系统：系统根据学生的学习行为和表现，个性化推荐学习资源和任务，帮助学生更高效地掌握知识。
@@ -28,6 +30,7 @@
 即时翻译与学习支持：翻译中心提供类似百度翻译的功能，支持多语言即时翻译，方便学生在多语言学习环境中进行交流和学习，提高学习的便利性。
 
 三．整体创新：
+
 1.智能推荐和学习分析：
 个性化学习路径：系统根据学生的学习进度和表现，智能推荐学习资源和任务，帮助学生更高效地掌握知识。
 详细学习记录：学生可以在“我的课程”模块中查看详细的学习记录，系统自动分析和总结学生的学习数据，提供个性化的学习建议。
@@ -37,4 +40,59 @@
 多任务处理与整合：系统集成了课程管理、AI助手、翻译中心等多种功能，用户可以在一个平台上完成多种任务，提升使用体验的便捷性。
 通过这些创新功能，未来AI课堂不仅提升了教学和学习的效率，还为用户提供了个性化和智能化的教育体验，满足了现代教育的多样化需求。
 
-![image](https://github.com/user-attachments/assets/b5d4a549-f589-4720-884c-693e6a652935)
+图文展示附下：
+老师端设计：
+首页展示。
+ ![image](https://github.com/user-attachments/assets/35803490-b2ce-4104-9371-cdcfdda5b30f)
+情景切换。
+ ![image](https://github.com/user-attachments/assets/87e711ae-c2c9-4c6b-ab2b-c226755a431a)
+
+可以选择不同的背景来适应自己想要的界面。
+
+老师在主页可以查看所教的课程和创建课程，当点击所教的课程，会进入课程首页，可以看该课程相关的信息。 
+ ![image](https://github.com/user-attachments/assets/9629cbdd-1951-44b0-b87e-745f85f5a5a8)
+![image](https://github.com/user-attachments/assets/e5884e4b-d12b-4fff-82a5-91ec84067450)
+
+在课程首页中，可以查看该课程的相关信息，AI会智能生成课程评价和学习建议，还有其他功能，课程任务，资料，讨论，课程管理等等。
+![image](https://github.com/user-attachments/assets/bc058ffb-d56b-4965-b813-e2f17b566797)
+
+  ![image](https://github.com/user-attachments/assets/226da939-d1b1-45a5-b890-6b190b5483c5)
+
+在课程任务中，可以看到自己发布的该课程的任务以及任务的状态，在该界面中可以进行发布任务，平台会自动将学生完成的作业批阅完成，老师也可以查看和修改批阅。
+![image](https://github.com/user-attachments/assets/b7b21359-0604-48dd-ab9e-27a12b2e0bc0)
+
+ ![image](https://github.com/user-attachments/assets/f6b967fa-0679-4418-a775-a0d5f104360e)
+
+在课程资料中，可以上传资料文件和删除，以及对文档进行一个智能解读提高用户工作效率。
+ ![image](https://github.com/user-attachments/assets/3c7c52a3-4e44-4ffd-adeb-cd26259bcde4)
+
+在课程讨论中，老师发布讨论话题，学生可以在该讨论下进行评论，老师可以看到评论的相关信息。
+ ![image](https://github.com/user-attachments/assets/3a93f447-2a72-4619-a770-e4fce4201a5e)
+
+在课程管理中，可以看到学生信息，方便老师管理。
+
+AI教师助手。
+![image](https://github.com/user-attachments/assets/a8d02c61-1a71-4003-8d5c-e5d94a500191)
+
+在AI教师助手中，老师可以和人工智能进行问答，可以使用语音，方便老师的工作，可以快速得到想要的答案。
+
+AI工作助手。
+![image](https://github.com/user-attachments/assets/4043c538-508b-4d06-bae7-9c791fa0503e)
+
+在AI工作助手中，有画图功能，老师可以用语言进行描述要画的东西，方便老师教学工作。
+ ![image](https://github.com/user-attachments/assets/645ce3ca-1798-461c-85bb-0ee275114311)
+ 
+在AI工作助手中，有幻灯片生成功能，老师可以先选择模板然后用语言进行描述要生成的PPT的内容，方便老师教学工作，减少老师的工作量。
+ ![image](https://github.com/user-attachments/assets/fce3d304-22de-4cb1-89be-3da442f61b6a)
+
+在AI工作助手中，有识别物体功能，老师可以将图片上传然后人工智能会将该图片中的内容进行解析然后总结给老师，方便老师教学工作，减少老师的工作量。
+
+翻译中心。
+ ![image](https://github.com/user-attachments/assets/cf808cd7-87fd-4684-a5f8-548c12abe8af)
+
+在翻译中心，老师可以用这个功能方便工作和教学，里面含有世界流行语言的所有翻译。
+我的
+ ![image](https://github.com/user-attachments/assets/ee091e55-116e-4c09-83f4-12198d211815)
+
+在我的中，可以查看个人信息，AI会提供智能推荐教学方法给老师。
+
